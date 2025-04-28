@@ -37,17 +37,25 @@ body {
   margin-top: 30px;
 }
 
-.menu button {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  text-align: left;
-  padding: 5px 0;
+/* Ispravak za točkice - dodajemo list-style: none */
+.menu ul {
+  list-style: none;
 }
 
-.menu button:hover {
+.menu li {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 0;
+  position: relative;
+}
+
+.menu li:hover {
   text-decoration: underline;
+}
+
+/* Stil za aktivnu kategoriju */
+.menu li.active {
+  font-weight: bold;
 }
 
 .info {
@@ -87,7 +95,11 @@ body {
   justify-content: center;
   cursor: pointer;
   user-select: none;
-  opacity: 50%:
+  opacity: 0.5; /* Ispravljena greška - bila je dvotočka umjesto točke-zarez */
+}
+
+.arrow:hover {
+  opacity: 1;
 }
 
 .arrow.left {

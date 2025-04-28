@@ -47,6 +47,8 @@ body {
   cursor: pointer;
   padding: 5px 0;
   position: relative;
+  font-weight: 400; /* Normalna debljina */
+  transition: font-weight 0.2s ease;
 }
 
 .menu li:hover {
@@ -56,6 +58,7 @@ body {
 /* Stil za aktivnu kategoriju */
 .menu li.active {
   font-weight: bold;
+  font-weight: 600;
 }
 
 .info {

@@ -51,8 +51,4 @@ navItems.forEach(item => {
 setActiveCategory(currentCategory);
 
 // Automatsko mijenjanje svakih 4 sekunde
-setInterval(() => {
-  const images = categories[currentCategory];
-  currentIndex = (currentIndex + 1) % images.length;
-  updateImage();
-}, 4000);
+

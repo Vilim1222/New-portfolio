@@ -1,4 +1,4 @@
-/* Resetiranje osnovnih stilova */
+/* Reset osnovnih margina */
 * {
   margin: 0;
   padding: 0;
@@ -9,121 +9,118 @@ body {
   font-family: 'Work Sans', sans-serif;
   background-color: #fff;
   color: #000;
-  overflow-x: hidden;
 }
 
-header {
+.container {
   display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 40px;
+  padding: 30px;
 }
 
 .logo {
-  width: 60px;
+  width: 100px;
   height: auto;
 }
 
-nav {
+.menu {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 15px;
+  margin-top: 30px;
 }
 
-nav a {
-  text-decoration: none;
-  color: #000;
+.menu button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: left;
+  padding: 5px 0;
+}
+
+.menu button:hover {
+  text-decoration: underline;
+}
+
+.info {
   font-size: 14px;
-  font-weight: 500;
-  transition: opacity 0.3s;
+  line-height: 1.6;
 }
 
-nav a:hover {
-  opacity: 0.6;
-}
-
-.contact-info {
-  margin-top: 40px;
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-.gallery-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.gallery {
+  width: 80%;
   position: relative;
-  height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.gallery-image {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  transition: opacity 0.5s ease;
+.gallery img {
+  max-height: 100vh;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
-  border: none;
   font-size: 30px;
+  color: black;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  z-index: 10;
+  user-select: none;
 }
 
 .arrow.left {
-  left: 10px;
+  left: 20px;
 }
 
 .arrow.right {
-  right: 10px;
-}
-
-.categories {
-  position: fixed;
-  top: 40px;
-  left: 120px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.categories button {
-  background: none;
-  border: none;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  color: #000;
-  text-align: left;
-  transition: opacity 0.3s;
-}
-
-.categories button:hover {
-  opacity: 0.6;
+  right: 20px;
 }
 
 @media (max-width: 768px) {
-  header {
+  .container {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
   }
-
-  .gallery-container {
-    height: calc(100vh - 160px);
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
-
-  .arrow {
-    font-size: 24px;
+  .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 0;
   }
-
-  .categories {
-    top: 100px;
-    left: 20px;
+  .gallery {
+    width: 100%;
+    height: calc(100vh - 120px);
+  }
+  .arrow.left {
+    left: 10px;
+  }
+  .arrow.right {
+    right: 10px;
   }
 }

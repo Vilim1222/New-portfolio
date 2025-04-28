@@ -1,5 +1,5 @@
 const categories = {
-  fashion: ['images/fashion1.jpg', 'images/fashion2.jpg'],
+  fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg'],
   nature: ['images/nature1.jpg', 'images/nature2.jpg'],
   portraits: ['images/portraits1.jpg', 'images/portraits2.jpg'],
   street: ['images/street1.jpg', 'images/street2.jpg'],

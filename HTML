@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: sans-serif; background: #fff; color: #111; }
+    header { display: flex; align-items: center; padding: 20px; }
+    header svg { width: 60px; height: auto; }
+    nav { margin-left: 40px; }
+    nav ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    nav li { cursor: pointer; font-weight: 500; text-transform: uppercase; font-size: 14px; }
+    .gallery-container { display: flex; justify-content: center; align-items: center; height: calc(100vh - 120px); position: relative; }
+    .gallery-container img { max-width: 100%; max-height: 80vh; object-fit: contain; transition: opacity 0.5s ease; }
+    .arrow { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; cursor: pointer; background: rgba(255,255,255,0.6); padding: 10px; border-radius: 50%; }
+    .arrow.left { left: 10px; }
+    .arrow.right { right: 10px; }
+    footer { padding: 20px; font-size: 12px; text-align: left; }
+
+    @media (max-width: 768px) {
+      nav ul { flex-direction: row; gap: 20px; }
+      nav { margin-left: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <!-- Placeholder SVG Logo -->
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20">
+    <rect x="0" y="0" width="20" height="20" stroke="#111" fill="none" stroke-width="2" />
+    <rect x="30" y="0" width="20" height="20" stroke="#111" fill="none" stroke-width="2" />
+    <rect x="60" y="0" width="20" height="20" stroke="#111" fill="none" stroke-width="2" />
+  </svg>
+
+  <nav>
+    <ul>
+      <li onclick="changeCategory('fashion')">Fashion</li>
+      <li onclick="changeCategory('nature')">Nature</li>
+      <li onclick="changeCategory('portraits')">Portraits</li>
+      <li onclick="changeCategory('street')">Street</li>
+      <li onclick="changeCategory('commercial')">Commercial</li>
+    </ul>
+  </nav>
+</header>
+
+<div class="gallery-container">
+  <div class="arrow left" onclick="prevImage()">&#8249;</div>
+  <img id="gallery-image" src="" alt="Gallery">
+  <div class="arrow right" onclick="nextImage()">&#8250;</div>
+</div>
+
+<footer>
+  Zagreb, Croatia<br>
+  vilim.tavcar@gmail.com
+</footer>
+
+<script>
+  const images = {
+    fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg'],
+    nature: ['images/nature1.jpg', 'images/nature2.jpg', 'images/nature3.jpg'],
+    portraits: ['images/portraits1.jpg', 'images/portraits2.jpg'],
+    street: ['images/street1.jpg', 'images/street2.jpg'],
+    commercial: ['images/commercial1.jpg', 'images/commercial2.jpg']
+  };
+
+  let currentCategory = 'fashion';
+  let currentIndex = 0;
+  let interval;
+
+  function updateImage() {
+    const img = document.getElementById('gallery-image');
+    img.style.opacity = 0;
+    setTimeout(() => {
+      img.src = images[currentCategory][currentIndex];
+      img.style.opacity = 1;
+    }, 300);
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images[currentCategory].length;
+    updateImage();
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images[currentCategory].length) % images[currentCategory].length;
+    updateImage();
+  }
+
+  function changeCategory(category) {
+    currentCategory = category;
+    currentIndex = 0;
+    updateImage();
+    clearInterval(interval);
+    startAutoSlide();
+  }
+
+  function startAutoSlide() {
+    interval = setInterval(nextImage, 4000);
+  }
+
+  // Init
+  updateImage();
+  startAutoSlide();
+</script>
+
+</body>
+</html>

@@ -16,6 +16,16 @@ function updateImage() {
   galleryImage.src = images[currentIndex];
 }
 
+function setActiveCategory(category) {
+  // Ukloni aktivnu klasu sa svih stavki
+  navItems.forEach(item => item.classList.remove('active'));
+  // Pronađi i postavi aktivnu klasu na odabranu kategoriju
+  const activeItem = Array.from(navItems).find(
+    item => item.getAttribute('data-category') === category
+  );
+  if (activeItem) activeItem.classList.add('active');
+}
+
 document.querySelector('.arrow.left').addEventListener('click', () => {
   const images = categories[currentCategory];
   currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -32,9 +42,13 @@ navItems.forEach(item => {
   item.addEventListener('click', () => {
     currentCategory = item.getAttribute('data-category');
     currentIndex = 0;
+    setActiveCategory(currentCategory); // Dodajemo poziv nove funkcije
     updateImage();
   });
 });
+
+// Inicijalno postavljanje aktivne klase
+setActiveCategory(currentCategory);
 
 // Automatsko mijenjanje svakih 4 sekunde
 setInterval(() => {

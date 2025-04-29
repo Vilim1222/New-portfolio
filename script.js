@@ -45,23 +45,7 @@ navItems.forEach(item => {
     setActiveCategory(currentCategory); // Dodajemo poziv nove funkcije
     updateImage();
   });
+});
 
-  function checkOrientation() {
-    const rotateMessage = document.getElementById("rotate-message");
-    const isMobile = window.innerWidth <= 768;
-    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
-
-    if (isMobile && isPortrait) {
-      document.body.classList.add("locked");
-    } else {
-      document.body.classList.remove("locked");
-    }
-  }
-
-  window.addEventListener("load", checkOrientation);
-  window.addEventListener("orientationchange", () => {
-    setTimeout(checkOrientation, 300);
-  });
-
-
-
+// Inicijalno postavljanje aktivne klase
+setActiveCategory(currentCategory);

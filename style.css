@@ -139,30 +139,28 @@ body {
   .arrow.right {
     right: 10px;
   }
-  #rotate-warning {
-  display: none;
+#rotate-message {
+  display: none; /* početno skriveno */
   position: fixed;
-  z-index: 9999;
   top: 0;
   left: 0;
+  z-index: 9999;
   width: 100vw;
   height: 100vh;
   background-color: white;
   color: black;
-  font-size: 18px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.2rem;
   text-align: center;
-  padding: 20px;
+  padding-top: 50vh;
 }
 
-body.portrait #rotate-warning {
-  display: flex;
+/* Prikazuj samo na uređajima ispod 768px širine (mobiteli) */
+@media screen and (max-width: 768px) {
+  body.locked {
+    overflow: hidden;
+  }
+  #rotate-message {
+    display: block;
+  }
 }
 
-body.portrait .container {
-  display: none;
-}
-}

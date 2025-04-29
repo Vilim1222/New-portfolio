@@ -10,6 +10,47 @@ body {
   color: #000;
 }
 
+/* Rotacijska poruka - sakrivena po defaultu */
+.rotate-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.rotate-message {
+  padding: 20px;
+  max-width: 80%;
+}
+
+.rotate-message h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.rotate-message p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.rotate-icon {
+  font-size: 50px;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .container {
   display: flex;
   height: 100vh;
@@ -36,7 +77,6 @@ body {
   margin-top: 30px;
 }
 
-/* Ispravak za točkice - dodajemo list-style: none */
 .menu ul {
   list-style: none;
 }
@@ -46,7 +86,7 @@ body {
   cursor: pointer;
   padding: 5px 0;
   position: relative;
-  font-weight: 400; /* Normalna debljina */
+  font-weight: 400;
   transition: font-weight 0.2s ease;
 }
 
@@ -54,9 +94,7 @@ body {
   text-decoration: underline;
 }
 
-/* Stil za aktivnu kategoriju */
 .menu li.active {
-  font-weight: bold;
   font-weight: 600;
 }
 
@@ -97,7 +135,7 @@ body {
   justify-content: center;
   cursor: pointer;
   user-select: none;
-  opacity: 0.5; /* Ispravljena greška - bila je dvotočka umjesto točke-zarez */
+  opacity: 0.5;
 }
 
 .arrow:hover {
@@ -112,29 +150,54 @@ body {
   right: 20px;
 }
 
+/* Pravilo koje osigurava da se poruka NE PRIKAZUJE na desktopu */
+@media screen and (min-width: 769px) {
+  .rotate-overlay {
+    display: none !important;
+  }
+}
+
+/* Responsive dizajn za mobilne uređaje */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
   }
+  
   .sidebar {
     width: 100%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 15px;
   }
+  
   .menu {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 0;
   }
+  
   .gallery {
     width: 100%;
     height: calc(80vh - 120px);
   }
+  
   .arrow.left {
     left: 10px;
   }
+  
   .arrow.right {
     right: 10px;
   }
+}
+
+/* Pravilo koje prikazuje poruku SAMO na mobilnim uređajima u portretu */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .rotate-overlay {
+    display: flex;
+  }
+  .container {
+    display: none;
+  }
+}

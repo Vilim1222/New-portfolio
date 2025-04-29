@@ -1,4 +1,3 @@
-/* Reset osnovnih margina */
 * {
   margin: 0;
   padding: 0;
@@ -139,28 +138,3 @@ body {
   .arrow.right {
     right: 10px;
   }
-#rotate-message {
-  display: none; /* početno skriveno */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-  color: black;
-  font-size: 1.2rem;
-  text-align: center;
-  padding-top: 50vh;
-}
-
-/* Prikazuj samo na uređajima ispod 768px širine (mobiteli) */
-@media screen and (max-width: 768px) {
-  body.locked {
-    overflow: hidden;
-  }
-  #rotate-message {
-    display: block;
-  }
-}
-

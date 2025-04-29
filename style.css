@@ -42,11 +42,15 @@ body {
 }
 
 .rotate-icon {
-  height: 50px;
   width: 50px;
-  font-size: 50px;
+  height: 50px;
+  margin-top: 20px;
   animation: rotate 2s infinite linear;
-  align-items: center;
+}
+
+.rotate-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes rotate {

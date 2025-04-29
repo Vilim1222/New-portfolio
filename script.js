@@ -46,6 +46,15 @@ navItems.forEach(item => {
     updateImage();
   });
 });
+function checkOrientation() {
+  const isPortrait = window.innerHeight > window.innerWidth;
+  document.body.classList.toggle('portrait', isPortrait);
+}
+
+// Provjeri orijentaciju pri učitavanju i na promjenu veličine
+window.addEventListener('load', checkOrientation);
+window.addEventListener('resize', checkOrientation);
+
 
 // Inicijalno postavljanje aktivne klase
 setActiveCategory(currentCategory);

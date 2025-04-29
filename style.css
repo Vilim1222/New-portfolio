@@ -46,6 +46,7 @@ body {
   width: 50px;
   font-size: 50px;
   animation: rotate 2s infinite linear;
+  align-items: center;
 }
 
 @keyframes rotate {

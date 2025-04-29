@@ -1,3 +1,23 @@
+// Dodajemo na početak postojećeg JavaScripta
+function checkOrientation() {
+  const isMobile = window.innerWidth <= 768;
+  const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+  
+  if (isMobile && isPortrait) {
+    document.querySelector('.rotate-overlay').style.display = 'flex';
+    document.querySelector('.container').style.display = 'none';
+  } else {
+    document.querySelector('.rotate-overlay').style.display = 'none';
+    document.querySelector('.container').style.display = 'flex';
+  }
+}
+
+// Event listeneri
+window.addEventListener('load', checkOrientation);
+window.addEventListener('resize', checkOrientation);
+window.addEventListener('orientationchange', checkOrientation);
+
+// Ostatak tvog postojećeg JavaScript koda ostaje isti...
 const categories = {
   fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg'],
   nature: ['images/nature1.jpg', 'images/nature2.jpg', 'images/nature3.jpg', 'images/nature4.jpg', 'images/nature5.jpg', 'images/nature6.jpg', 'images/nature7.jpg', 'images/nature8.jpg', 'images/nature9.jpg', 'images/nature10.jpg'],
@@ -17,9 +37,7 @@ function updateImage() {
 }
 
 function setActiveCategory(category) {
-  // Ukloni aktivnu klasu sa svih stavki
   navItems.forEach(item => item.classList.remove('active'));
-  // Pronađi i postavi aktivnu klasu na odabranu kategoriju
   const activeItem = Array.from(navItems).find(
     item => item.getAttribute('data-category') === category
   );
@@ -42,10 +60,9 @@ navItems.forEach(item => {
   item.addEventListener('click', () => {
     currentCategory = item.getAttribute('data-category');
     currentIndex = 0;
-    setActiveCategory(currentCategory); // Dodajemo poziv nove funkcije
+    setActiveCategory(currentCategory);
     updateImage();
   });
 });
 
-// Inicijalno postavljanje aktivne klase
 setActiveCategory(currentCategory);

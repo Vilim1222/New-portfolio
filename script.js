@@ -45,8 +45,7 @@ navItems.forEach(item => {
     setActiveCategory(currentCategory); // Dodajemo poziv nove funkcije
     updateImage();
   });
-});
-<script>
+
   function checkOrientation() {
     const rotateMessage = document.getElementById("rotate-message");
     const isMobile = window.innerWidth <= 768;
@@ -63,6 +62,6 @@ navItems.forEach(item => {
   window.addEventListener("orientationchange", () => {
     setTimeout(checkOrientation, 300);
   });
-</script>
+
 
 

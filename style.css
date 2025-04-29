@@ -117,7 +117,19 @@ body {
   width: auto;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  /* Novi property za bolju performansu */
+  image-rendering: -webkit-optimize-contrast;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Preload animacija */
+.gallery img:not([loaded]) {
+  opacity: 0;
+}
+.gallery img[loaded] {
+  opacity: 1;
 }
 
 .arrow {

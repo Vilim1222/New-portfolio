@@ -46,18 +46,23 @@ navItems.forEach(item => {
     updateImage();
   });
 });
-function checkOrientation() {
-  const isPortrait = window.innerHeight > window.innerWidth;
-  document.body.classList.toggle('portrait', isPortrait);
-}
+<script>
+  function checkOrientation() {
+    const rotateMessage = document.getElementById("rotate-message");
+    const isMobile = window.innerWidth <= 768;
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
-// Provjeri orijentaciju pri učitavanju i na promjenu veličine
-window.addEventListener('load', checkOrientation);
-window.addEventListener('resize', checkOrientation);
+    if (isMobile && isPortrait) {
+      document.body.classList.add("locked");
+    } else {
+      document.body.classList.remove("locked");
+    }
+  }
 
+  window.addEventListener("load", checkOrientation);
+  window.addEventListener("orientationchange", () => {
+    setTimeout(checkOrientation, 300);
+  });
+</script>
 
-// Inicijalno postavljanje aktivne klase
-setActiveCategory(currentCategory);
-
-// Automatsko mijenjanje svakih 4 sekunde
 

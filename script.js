@@ -19,7 +19,7 @@ window.addEventListener('orientationchange', checkOrientation);
 
 // Ostatak tvog postojećeg JavaScript koda ostaje isti...
 const categories = {
-  fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg'],
+  fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg', 'images/fashion11.jpg', 'images/fashion12.jpg', 'images/fashion13.jpg', 'images/fashion14.jpg', 'images/fashion15.jpg', 'images/fashion16.jpg', 'images/fashion17.jpg', 'images/fashion18.jpg', 'images/fashion19.jpg', 'images/fashion20.jpg'],
   nature: ['images/nature1.jpg', 'images/nature2.jpg', 'images/nature3.jpg', 'images/nature4.jpg', 'images/nature5.jpg', 'images/nature6.jpg', 'images/nature7.jpg', 'images/nature8.jpg', 'images/nature9.jpg', 'images/nature10.jpg'],
   portraits: ['images/portraits1.jpg', 'images/portraits2.jpg', 'images/portraits3.jpg', 'images/portraits4.jpg', 'images/portraits5.jpg', 'images/portraits6.jpg', 'images/portraits7.jpg', 'images/portraits8.jpg', 'images/portraits9.jpg', 'images/portraits10.jpg'],
   street: ['images/street1.jpg', 'images/street2.jpg', 'images/street3.jpg', 'images/street4.jpg', 'images/street5.jpg', 'images/street6.jpg', 'images/street7.jpg', 'images/street8.jpg', 'images/street9.jpg', 'images/street10.jpg'],

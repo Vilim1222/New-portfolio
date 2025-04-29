@@ -1,4 +1,13 @@
-color: #000;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  background-color: #fff;
+  color: #000;
 }
 
 /* Rotacijska poruka - sakrivena po defaultu */
@@ -43,46 +52,102 @@ color: #000;
 }
 
 .container {
-display: flex;
-height: 100vh;
-@@ -36,7 +77,6 @@ body {
-margin-top: 30px;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* Ispravak za točkice - dodajemo list-style: none */
-.menu ul {
-list-style: none;
+.sidebar {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
 }
-@@ -46,17 +86,15 @@ body {
-cursor: pointer;
-padding: 5px 0;
-position: relative;
-  font-weight: 400; /* Normalna debljina */
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu li {
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 0;
+  position: relative;
   font-weight: 400;
-transition: font-weight 0.2s ease;
+  transition: font-weight 0.2s ease;
 }
 
 .menu li:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* Stil za aktivnu kategoriju */
 .menu li.active {
-  font-weight: bold;
-font-weight: 600;
+  font-weight: 600;
 }
 
-@@ -97,7 +135,7 @@ body {
-justify-content: center;
-cursor: pointer;
-user-select: none;
-  opacity: 0.5; /* Ispravljena greška - bila je dvotočka umjesto točke-zarez */
+.info {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.gallery {
+  width: 80%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gallery img {
+  max-height: 100vh;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: black;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
   opacity: 0.5;
 }
 
 .arrow:hover {
-@@ -112,29 +150,54 @@ body {
-right: 20px;
+  opacity: 1;
+}
+
+.arrow.left {
+  left: 20px;
+}
+
+.arrow.right {
+  right: 20px;
 }
 
 /* Pravilo koje osigurava da se poruka NE PRIKAZUJE na desktopu */
@@ -94,37 +159,37 @@ right: 20px;
 
 /* Responsive dizajn za mobilne uređaje */
 @media (max-width: 768px) {
-.container {
-flex-direction: column;
-}
+  .container {
+    flex-direction: column;
+  }
   
-.sidebar {
-width: 100%;
-flex-direction: row;
-align-items: center;
-justify-content: space-between;
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     padding: 15px;
-}
+  }
   
-.menu {
-flex-direction: row;
-flex-wrap: wrap;
-gap: 10px;
-margin-top: 0;
-}
+  .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 0;
+  }
   
-.gallery {
-width: 100%;
-height: calc(80vh - 120px);
-}
+  .gallery {
+    width: 100%;
+    height: calc(80vh - 120px);
+  }
   
-.arrow.left {
-left: 10px;
-}
+  .arrow.left {
+    left: 10px;
+  }
   
-.arrow.right {
-right: 10px;
-}
+  .arrow.right {
+    right: 10px;
+  }
 }
 
 /* Pravilo koje prikazuje poruku SAMO na mobilnim uređajima u portretu */

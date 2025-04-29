@@ -190,6 +190,16 @@ body {
   .arrow.right {
     right: 10px;
   }
+
+  /* Smanjivanje teksta za kontakt informacije */
+  .info {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .info p {
+    margin-bottom: 4px;
+  }
 }
 
 /* Pravilo koje prikazuje poruku SAMO na mobilnim uređajima u portretu */

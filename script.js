@@ -1,5 +1,5 @@
 // Dodajemo na početak postojećeg JavaScripta
- //function checkOrientation() {
+ function checkOrientation() {
   const isMobile = window.innerWidth <= 768;
   const isPortrait = window.matchMedia("(orientation: portrait)").matches;
   

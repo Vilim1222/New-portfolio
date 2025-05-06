@@ -279,6 +279,9 @@ body {
     position: relative;
     top: 0.25em;
   }
+    .info {
+    font-size: 11px;
+  }
   
   /* ... ostali portrait stilovi ... */
 }

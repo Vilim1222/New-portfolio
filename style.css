@@ -250,7 +250,12 @@ body {
     width: 75% !important;
     height: 100vh !important;
   }
+  .info {
+    font-size: 11px;
+  }
 }
+
+
 
 @media (max-width: 768px) and (orientation: portrait) {
   /* Ovdje ostavi sve postojeće portrait style koje smo ranije definirali */

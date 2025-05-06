@@ -1,4 +1,40 @@
-// Dodajemo na početak postojećeg JavaScripta
+// Dodaj ovo na početak script.js
+let touchStartX = 0;
+let touchEndX = 0;
+
+function handleTouchStart(e) {
+  touchStartX = e.changedTouches[0].screenX;
+}
+
+function handleTouchEnd(e) {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+}
+
+function handleSwipe() {
+  const swipeThreshold = 50; // Minimalni pomak za okidanje promjene
+  
+  if (touchEndX < touchStartX - swipeThreshold) {
+    // Swipe lijevo - sljedeća slika
+    document.querySelector('.arrow.right').click();
+  } else if (touchEndX > touchStartX + swipeThreshold) {
+    // Swipe desno - prethodna slika
+    document.querySelector('.arrow.left').click();
+  }
+}
+
+// Dodaj event listenere samo za mobilne uređaje
+function setupTouchEvents() {
+  if (window.innerWidth <= 768) {
+    const gallery = document.querySelector('.gallery');
+    gallery.addEventListener('touchstart', handleTouchStart, {passive: true});
+    gallery.addEventListener('touchend', handleTouchEnd, {passive: true});
+  }
+}
+
+// Pozovi funkciju pri učitavanju i promjeni veličine prozora
+window.addEventListener('load', setupTouchEvents);
+window.addEventListener('resize', setupTouchEvents);a
  function checkOrientation() {
   const isMobile = window.innerWidth <= 768;
   const isPortrait = window.matchMedia("(orientation: portrait)").matches;
@@ -93,4 +129,29 @@ function adjustImageHeight() {
 
 window.addEventListener('load', adjustImageHeight);
 window.addEventListener('resize', adjustImageHeight);
+// Nadogradi handleTouchStart i handleTouchEnd funkcije
+function handleTouchStart(e) {
+  touchStartX = e.changedTouches[0].screenX;
+  document.querySelector('.gallery').classList.remove('swipe-left', 'swipe-right');
+}
+
+function handleTouchMove(e) {
+  const currentX = e.changedTouches[0].screenX;
+  const diff = currentX - touchStartX;
+  
+  if (Math.abs(diff) > 10) {
+    const gallery = document.querySelector('.gallery');
+    gallery.classList.remove('swipe-left', 'swipe-right');
+    gallery.classList.add(diff < 0 ? 'swipe-left' : 'swipe-right');
+  }
+}
+
+function setupTouchEvents() {
+  if (window.innerWidth <= 768) {
+    const gallery = document.querySelector('.gallery');
+    gallery.addEventListener('touchstart', handleTouchStart, {passive: true});
+    gallery.addEventListener('touchmove', handleTouchMove, {passive: true});
+    gallery.addEventListener('touchend', handleTouchEnd, {passive: true});
+  }
+}
 

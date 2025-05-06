@@ -275,9 +275,8 @@ body {
     grid-area: logo;
     width: 80px;
     justify-self: end;
-    margin-top: 10px;
     position: relative;
-    top: 1.25em;
+    top: 1.35em;
   }
     .info {
     font-size: 11px;

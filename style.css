@@ -281,6 +281,21 @@ body {
     .info {
     font-size: 11px;
   }
+    .gallery img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain !important; /* Osigurava cijelu sliku vidljivu bez cropanja */
+    object-position: center;
+  }
+
+  .gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5; /* Neutralna pozadina za bijele margine */
+  }
+}
   
   /* ... ostali portrait stilovi ... */
 }

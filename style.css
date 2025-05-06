@@ -156,47 +156,47 @@ body {
   .sidebar {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto; /* Druga kolona zauzima samo potrebnu širinu */
     gap: 15px;
     padding: 15px;
-    align-items: start; /* Svi elementi poravnati na vrh */
+    align-items: start;
   }
   
   .logo {
     grid-column: 2;
-    justify-self: end;
     width: 80px;
-    margin-top: 0.5em; /* Fino podešavanje za precizno poravnanje */
+    margin-top: 0; /* Uklanja sve margin-top */
+    align-self: start; /* Eksplicitno poravnanje na vrh */
+    position: relative;
+    top: 0.3em; /* Fino pomiče logo dolje za precizno poravnanje */
   }
   
   .menu {
     grid-column: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.8em; /* Ujednačeni razmak između stavki */
-    padding-top: 0.2em; /* Fino podešavanje poravnanja */
+    gap: 0.8em;
+    padding-top: 0.3em; /* Dodaje malo prostora iznad menija */
   }
   
   .info {
     grid-column: 2;
+    grid-row: 2;
     justify-self: end;
     text-align: right;
-    margin-top: auto; /* Pomakne info prema dolju */
+    padding-top: 10px; /* Razmak između loga i info */
   }
   
   .gallery {
     width: 100%;
-    height: calc(100vh - 200px);
-    order: 3;
+    height: calc(100vh - 180px); /* Podešena visina */
+    margin-top: 10px;
   }
   
   .menu li {
     font-size: 16px;
     white-space: nowrap;
-  }
-  
-  .menu li:first-child {
-    padding-top: 0; /* Osigurava da "FASHION" nema dodatni padding */
+    line-height: 1.4;
   }
   
   .arrow {

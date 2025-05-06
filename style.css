@@ -147,7 +147,6 @@ body {
   right: 20px;
 }
 
-/* Responsive dizajn za mobilne uređaje */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -162,22 +161,26 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 15px;
     padding: 15px;
+    align-items: start; /* Promijenjeno iz center u start */
   }
   
   .logo {
     grid-area: logo;
     width: 80px;
     justify-self: end;
-    /*align-self: start; /* Logo na vrhu */
+    margin-top: 0.5em; /* Dodano za finu korekciju pozicije */
+    position: relative;
+    top: 0.25em; /* Dodano za precizno podešavanje */
   }
   
   .menu {
     grid-area: menu;
-    align-self: center; /* Centrira meni vertikalno */
+    align-self: start; /* Promijenjeno iz center u start */
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrira stavke menija vertikalno */
+    gap: 0.8em; /* Bolje od justify-content: center */
+    padding-top: 0.25em; /* Dodano za finu korekciju */
   }
   
   .info {

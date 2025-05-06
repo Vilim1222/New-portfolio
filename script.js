@@ -80,3 +80,17 @@ function handleOrientationChange() {
 window.addEventListener('resize', handleOrientationChange);
 window.addEventListener('orientationchange', handleOrientationChange);
 
+// Dodaj u script.js
+function adjustImageHeight() {
+  if (window.innerWidth <= 768 && window.matchMedia("(orientation: portrait)").matches) {
+    const img = document.getElementById('gallery-image');
+    const windowHeight = window.innerHeight;
+    const headerHeight = document.querySelector('.sidebar').offsetHeight;
+    
+    img.style.maxHeight = `${windowHeight - headerHeight - 40}px`;
+  }
+}
+
+window.addEventListener('load', adjustImageHeight);
+window.addEventListener('resize', adjustImageHeight);
+

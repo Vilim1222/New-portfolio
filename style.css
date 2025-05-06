@@ -195,6 +195,7 @@ body {
     width: 100%;
     height: calc(100vh - 200px);
     order: 3;
+    overflow: hidden;
     touch-action: pan-y;
   }
   .gallery img {

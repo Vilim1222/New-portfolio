@@ -208,56 +208,69 @@ body {
     height: 35px;
   }
 }
-/* Responsive dizajn za mobilne uređaje 
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: landscape) {
   .container {
-    flex-direction: column;
+    flex-direction: row !important; /* Forcira horizontalni layout */
   }
   
   .sidebar {
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
+    width: 20% !important;
+    flex-direction: column !important;
+    padding: 30px !important;
+    align-items: flex-start !important;
+  }
+  
+  .logo {
+    width: 100px !important;
+    margin-top: 0 !important;
+    top: 0 !important;
+    justify-self: start !important;
   }
   
   .menu {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 0;
+    flex-direction: column !important;
+    gap: 15px !important;
+    margin-top: 30px !important;
+    padding-top: 0 !important;
+    align-self: stretch !important;
+  }
+  
+  .info {
+    text-align: left !important;
+    justify-self: start !important;
+    margin-top: auto !important;
+    padding-top: 0 !important;
   }
   
   .gallery {
+    width: 80% !important;
+    height: 100vh !important;
+    order: 0 !important;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Ovdje ostavi sve postojeće portrait style koje smo ranije definirali */
+  .sidebar {
     width: 100%;
-    height: calc(80vh - 120px);
+    display: grid;
+    grid-template-areas: 
+      "menu logo"
+      "menu info";
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    align-items: start;
   }
   
-  .arrow.left {
-    left: 10px;
+  .logo {
+    grid-area: logo;
+    width: 80px;
+    justify-self: end;
+    margin-top: 0.5em;
+    position: relative;
+    top: 0.25em;
   }
   
-  .arrow.right {
-    right: 10px;
-  }
-
-  .info {
-    font-size: 12px;
-    line-height: 1.4;
-  }
-  
-  .info p {
-    margin-bottom: 4px;
-  }
-}*/
-
-/* Pravilo koje prikazuje poruku SAMO na mobilnim uređajima u portretu 
-@media screen and (max-width: 768px) and (orientation: portrait) {
-  .rotate-overlay {
-    display: flex;
-  }
-  .container {
-    display: none;
-  }
-}*/
+  /* ... ostali portrait stilovi ... */
+}

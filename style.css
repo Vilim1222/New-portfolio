@@ -107,6 +107,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  
 }
 
 .gallery img {
@@ -194,6 +195,19 @@ body {
     width: 100%;
     height: calc(100vh - 200px);
     order: 3;
+    touch-action: pan-y;
+  }
+  .gallery img {
+    transition: transform 0.3s ease;
+  }
+  
+  /* Animacija za swipe feedback */
+  .gallery.swipe-left img {
+    transform: translateX(-10px);
+  }
+  
+  .gallery.swipe-right img {
+    transform: translateX(10px);
   }
   
   .menu li {
@@ -276,7 +290,7 @@ body {
     width: 80px;
     justify-self: end;
     position: relative;
-    top: 1.50em;
+    top: 1.80em;
   }
     .info {
     font-size: 11px;

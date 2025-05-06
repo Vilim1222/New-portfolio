@@ -66,18 +66,4 @@ navItems.forEach(item => {
 });
 
 setActiveCategory(currentCategory);
-// Dodajte na kraj postojećeg JS koda
-function adjustLogoPosition() {
-  if (window.innerWidth <= 768) {
-    const firstMenuItem = document.querySelector('nav ul li:first-child');
-    const logo = document.querySelector('.logo');
-    
-    if (firstMenuItem && logo) {
-      const menuItemTop = firstMenuItem.getBoundingClientRect().top;
-      logo.style.top = (menuItemTop - logo.getBoundingClientRect().top) + 'px';
-    }
-  }
-}
 
-window.addEventListener('load', adjustLogoPosition);
-window.addEventListener('resize', adjustLogoPosition);

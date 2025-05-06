@@ -179,7 +179,7 @@ body {
   .menu {
     grid-column: 1;
     grid-row: 1;
-    align-self: end; /* Poravnava meni s donjim dijelom */
+    align-self: top; /* Poravnava meni s donjim dijelom */
     margin-bottom: 5px; /* Fino podešavanje */
   }
   

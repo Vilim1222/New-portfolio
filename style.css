@@ -199,7 +199,7 @@ body {
   }
 }
 
-/* Pravilo koje prikazuje poruku SAMO na mobilnim uređajima u portretu */
+/* Pravilo koje prikazuje poruku SAMO na mobilnim uređajima u portretu 
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .rotate-overlay {
     display: flex;
@@ -207,4 +207,4 @@ body {
   .container {
     display: none;
   }
-}
+}*/

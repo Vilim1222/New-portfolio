@@ -1,5 +1,5 @@
 // Dodajemo na početak postojećeg JavaScripta
-function checkOrientation() {
+ //function checkOrientation() {
   const isMobile = window.innerWidth <= 768;
   const isPortrait = window.matchMedia("(orientation: portrait)").matches;
   
@@ -10,7 +10,7 @@ function checkOrientation() {
     document.querySelector('.rotate-overlay').style.display = 'none';
     document.querySelector('.container').style.display = 'flex';
   }
-}
+} 
 
 // Event listeneri
 window.addEventListener('load', checkOrientation);

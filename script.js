@@ -66,4 +66,17 @@ navItems.forEach(item => {
 });
 
 setActiveCategory(currentCategory);
+function handleOrientationChange() {
+  const isMobile = window.innerWidth <= 768;
+  const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+  
+  if (isMobile && isLandscape) {
+    document.querySelector('.sidebar').style.display = 'flex';
+    document.querySelector('.gallery').style.width = '80%';
+  }
+}
+
+// Dodaj event listener
+window.addEventListener('resize', handleOrientationChange);
+window.addEventListener('orientationchange', handleOrientationChange);
 

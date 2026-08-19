@@ -11,7 +11,7 @@ body {
 }
 a {
     color: inherit; /* Removes the blue color */
-    text-decoration: none; /* Optional: Removes the underline */
+    /* text-decoration: none; Optional: Removes the underline */
 }
 .info .copyright-text {
   font-size: 9px; 

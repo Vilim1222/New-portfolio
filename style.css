@@ -9,6 +9,10 @@ body {
   background-color: #fff;
   color: #000;
 }
+a {
+    color: inherit; /* Removes the blue color */
+    text-decoration: none; /* Optional: Removes the underline */
+}
 
 /* Rotacijska poruka - sakrivena po defaultu 
 .rotate-overlay {

@@ -13,6 +13,10 @@ a {
     color: inherit; /* Removes the blue color */
     text-decoration: none; /* Optional: Removes the underline */
 }
+.info .copyright-text {
+  font-size: 8px; 
+  padding: 10px
+}
 
 /* Rotacijska poruka - sakrivena po defaultu 
 .rotate-overlay {

@@ -281,6 +281,9 @@ body {
     .info {
     font-size: 11px;
   }
+    .info 2{
+    font-size: 7px;
+  }
     .gallery img {
     width: 100%;
     height: auto;

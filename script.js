@@ -36,8 +36,7 @@ const photoTitles = {
   "images/work6.jpg": "BIPA - advertorial ",
   "images/work7.jpg": "Eucerin - Hydro-protect ",
   "images/work8.jpg": "Stella Rade - Nema te ' Eurovision 2026",
-  "images/work9.jpg": "Rossi - brend image ",
-  "images/work10.jpg": "ZFA Folklore dancing ensemble ",
+
 
   
 
@@ -64,9 +63,9 @@ window.addEventListener('orientationchange', checkOrientation);
 
 // Ostatak tvog postojećeg JavaScript koda ostaje isti...
 const categories = {
-  fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg', 'images/fashion11.jpg', 'images/fashion12.jpg'],
+  fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg', 'images/fashion11.jpg'],
   portraits: ['images/portraits1.jpg', 'images/portraits2.jpg', 'images/portraits3.jpg', 'images/portraits4.jpg', 'images/portraits5.jpg', 'images/portraits6.jpg', 'images/portraits7.jpg', 'images/portraits8.jpg', 'images/portraits9.jpg', 'images/portraits10.jpg'],
-  work: ['images/work1.jpg', 'images/work2.jpg', 'images/work3.jpg', 'images/work4.jpg', 'images/work5.jpg', 'images/work6.jpg', 'images/work7.jpg', 'images/work8.jpg', 'images/work9.jpg', 'images/work10.jpg']
+  work: ['images/work1.jpg', 'images/work2.jpg', 'images/work3.jpg', 'images/work4.jpg', 'images/work5.jpg', 'images/work6.jpg', 'images/work7.jpg', 'images/work8.jpg']
 };
 
 let currentCategory = 'fashion';

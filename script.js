@@ -8,7 +8,38 @@ const navItems = document.querySelectorAll('nav ul li');
 const photoTitles = {
   "images/fashion1.jpg": "The Fool's Journey fashion project",
   "images/fashion2.jpg": "GloriaIN - Velvet noir editorial",
+  "images/fashion3.jpg": "GloriaIN - Velvet noir editorial",
+  "images/fashion4.jpg": "GloriaIN - Velvet noir editorial",
+  "images/fashion5.jpg": "GloriaIN - Velvet noir editorial",
+  "images/fashion6.jpg": "GloriaIN - Velvet noir editorial",
+  "images/fashion7.jpg": "GloriaIN - Velvet noir editorial",
+  "images/fashion8.jpg": "GloriaIN - Velvet noir editorial",
+  "images/fashion9.jpg": "GloriaIN - Velvet noir editorial",
+  "images/fashion10.jpg": "GloriaIN - Velvet noir editorial",
+
   "images/portraits1.jpg": "Rajna - Vere models", 
+  "images/portraits2.jpg": "Rajna - Vere models", 
+  "images/portraits3.jpg": "Rajna - Vere models", 
+  "images/portraits4.jpg": "Rajna - Vere models", 
+  "images/portraits5.jpg": "Rajna - Vere models", 
+  "images/portraits6.jpg": "Rajna - Vere models", 
+  "images/portraits7.jpg": "Rajna - Vere models", 
+  "images/portraits8.jpg": "Rajna - Vere models", 
+  "images/portraits9.jpg": "Rajna - Vere models", 
+  "images/portraits10.jpg": "Rajna - Vere models", 
+
+  "images/work1.jpg": "Rajna - Vere models", 
+  "images/work2.jpg": "Rajna - Vere models", 
+  "images/work3.jpg": "Rajna - Vere models", 
+  "images/work4.jpg": "Rajna - Vere models", 
+  "images/work5.jpg": "Rajna - Vere models", 
+  "images/work6.jpg": "Rajna - Vere models", 
+  "images/work7.jpg": "Rajna - Vere models", 
+  "images/work8.jpg": "Rajna - Vere models", 
+  "images/work9.jpg": "Rajna - Vere models", 
+  "images/work10.jpg": "Rajna - Vere models", 
+
+
   // Add other image paths and titles here as needed
 };
 

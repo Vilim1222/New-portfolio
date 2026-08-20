@@ -5,11 +5,11 @@
 }
 .photo-title {
   
-  right: 50%;
+  right: 50px;
+  bottom: 50px; 
   font-size: 9px;
   position: absolute;
-  bottom: 50px;       /* Distance from the bottom edge */
-  left: 90%    /* Distance from the left edge */
+      /* Distance from the bottom edge */   /* Distance from the left edge */
   color: #ffffff;     /* White text color */
   font-family: sans-serif;
   letter-spacing: 1px;

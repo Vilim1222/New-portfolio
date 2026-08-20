@@ -4,10 +4,12 @@
   box-sizing: border-box;
 }
 .photo-title {
+  top: 50%;
+  left: 50%;
   font-size: 9px;
   position: absolute;
   bottom: 50px;       /* Distance from the bottom edge */
-  right: 50px;         /* Distance from the left edge */
+       /* Distance from the left edge */
   color: #ffffff;     /* White text color */
   font-family: sans-serif;
   font-size: 14px;

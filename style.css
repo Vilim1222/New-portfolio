@@ -10,19 +10,17 @@ img {
 }
 
 .photo-title {
-  font-size: 9px;
+  font-size: 11px;       /* Slightly larger for clear readability */
   position: absolute;
-  right: 50px;
-  bottom: 50px; 
-      /* Distance from the bottom edge */   /* Distance from the left edge */
-  color: #ffffff;     /* White text color */
+  bottom: 25px;          /* Clean distance from the bottom framework */
+  left: 30px;            /* Aligns nicely inside the left boundary of your image box */
+  color: #000000;        /* Changed to black so it shows over white margins and backgrounds */
   font-family: sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
-  z-index: 99;         /* Keeps text visible above the image */
+  z-index: 99;           /* Guarantees it sits above structural image layers */
   pointer-events: none;
-  opacity: 0.5; 
-  opacity: 0.7; 
+  opacity: 0.8; 
 }
 
 body {

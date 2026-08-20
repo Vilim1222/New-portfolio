@@ -13,7 +13,7 @@
   font-family: sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
-  z-index: 5;         /* Keeps text visible above the image */
+  z-index: 99;         /* Keeps text visible above the image */
   pointer-events: none;
   opacity: 0.5; 
 }

@@ -127,44 +127,48 @@ a {
 
 .gallery {
   width: 80%;
-  position: relative;
+  position: relative !important; /* Forces the gallery to lock the text inside its boundaries */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-.gallery img {
-  max-height: 100vh;
-  width: auto;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.arrow {
+.photo-title {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  color: black;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  user-select: none;
-  opacity: 0.4;
+  bottom: 20px;       /* Fixed distance from the bottom of the gallery */
+  
+  /* CHOOSE ONE SIDE: */
+  left: 20px;         /* Use this for BOTTOM LEFT */
+  /* right: 20px; */  /* Remove comment marker and delete 'left' for BOTTOM RIGHT */
+  
+  color: #000000;     /* Changed to black so it is visible against your white site background */
+  font-family: sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 99;        /* Pushes it safely above any sliding images */
+  pointer-events: none;
 }
 
-.arrow:hover {
-  opacity: 1;
 }
 
-.arrow.left {
-  left: 20px;
+.photo-title {
+  position: absolute;
+  bottom: 20px;       /* Fixed distance from the bottom of the gallery */
+  
+  /* CHOOSE ONE SIDE: */
+  left: 20px;         /* Use this for BOTTOM LEFT */
+  /* right: 20px; */  /* Remove comment marker and delete 'left' for BOTTOM RIGHT */
+  
+  color: #000000;     /* Changed to black so it is visible against your white site background */
+  font-family: sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 99;        /* Pushes it safely above any sliding images */
+  pointer-events: none;
+}
 }
 
 .arrow.right {

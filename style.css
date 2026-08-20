@@ -3,20 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-.photo-title {
-  font-size: 9px;
-  position: absolute;
-  right: 50px;
-  bottom: 50px; 
-      /* Distance from the bottom edge */   /* Distance from the left edge */
-  color: #ffffff;     /* White text color */
-  font-family: sans-serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  z-index: 99;         /* Keeps text visible above the image */
-  pointer-events: none;
-  opacity: 0.7; 
-}
+
 img {
   user-select: none;
   -webkit-user-drag: none;
@@ -127,13 +114,47 @@ a {
   line-height: 1.6;
 }
 
-  .gallery {
-    width: 75% !important;
-    height: 100vh !important;
-  
+.gallery {
+  width: 80%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
+.gallery img {
+  max-height: 100vh;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
 
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.4;
+}
+
+.arrow:hover {
+  opacity: 1;
+}
+
+.arrow.left {
+  left: 20px;
+}
 
 .arrow.right {
   right: 20px;
@@ -285,44 +306,13 @@ a {
     object-position: center;
   }
 
-
-/* Mobile View Corrections (Screens under 768px wide) */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Stack sidebar above content */
-    height: auto;
-    overflow: visible;
-  }
-
-  .sidebar {
-    width: 100%; /* Take up full width on mobile */
-    padding: 20px;
-    align-items: flex-start; /* Keeps logo in the top-left */
-    justify-content: flex-start;
-  }
-
-  .logo {
-    width: 80px; /* Marginally smaller logo for mobile screens */
-    margin-bottom: 15px;
-  }
-
-  .menu {
-    margin-top: 10px;
-  }
-
-  /* Shrinks the credits/copyright info */
-  .info .copyright-text {
-    font-size: 9px; /* Reduced from 11px */
-    padding-top: 20px; /* Reduced massive 100px padding for mobile */
-  }
-
-  /* Shrinks the absolute positioned photo title if needed */
-  .photo-title {
-    font-size: 10px; 
-    bottom: 20px;
+  .gallery {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background-color: #f5f5f5; /* Neutralna pozadina za bijele margine */
   }
 }
-
   
   /* ... ostali portrait stilovi ... */
 }

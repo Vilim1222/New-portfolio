@@ -127,15 +127,10 @@ a {
   line-height: 1.6;
 }
 
-.gallery {
-  height: auto;
-  width: 80%;
-  position: relative !important; /* Forces the gallery to lock the text inside its boundaries */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  object-fit: contain
+  .gallery {
+    width: 75% !important;
+    height: 100vh !important;
+  
 }
 
 
@@ -290,13 +285,7 @@ a {
     object-position: center;
   }
 
-  .gallery {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*background-color: #f5f5f5; /* Neutralna pozadina za bijele margine */
-  }
-}
+
 /* Mobile View Corrections (Screens under 768px wide) */
 @media (max-width: 768px) {
   .container {

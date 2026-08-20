@@ -11,8 +11,8 @@ const photoTitles = {
   "images/fashion5.jpg": "Anatticus 26",
   "images/fashion6.jpg": "Anatticus - The Mind Behind The Making",
   "images/fashion7.jpg": "Jean Paul Gaultier - fashion project",
-  "images/fashion8.jpg": "Stages of grief - fashion project",
-  "images/fashion9.jpg": "GloriaIN - DIPMOD 10 editorial",
+  "images/fashion8.jpg": "GloriaIN - DIPMOD 10 editorial",
+  "images/fashion9.jpg": "Stages of grief - fashion project",
   "images/fashion10.jpg": "Antea Zimaj - Herida",
   "images/fashion11.jpg": "BIPA Fashion.hr - Vicko Racetin ",
 

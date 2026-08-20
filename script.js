@@ -6,8 +6,42 @@ const galleryTitle = document.getElementById("gallery-title");
 const photoTitles = {
   "images/fashion1.jpg": "The Fool's Journey fashion project",
   "images/fashion2.jpg": "GloriaIN - Velvet noir editorial",
-  "images/portraits1.jpg": "Rajna - Vere models", // Fixed plural spelling to match your array map
-  // Map all your image paths to their respective titles here...
+  "images/fashion3.jpg": "flaw - Wearing resistance editorial",
+  "images/fashion4.jpg": "Izakova SS 26",
+  "images/fashion5.jpg": "Anatticus The Mind Behind The Making",
+  "images/fashion6.jpg": "Anatticus collection",
+  "images/fashion7.jpg": "Jean Paul Gaultier fashion project",
+  "images/fashion8.jpg": "Stages of grief fashion project",
+  "images/fashion9.jpg": "Y2K fashion project",
+  "images/fashion10.jpg": "GloriaIN - DIPMOD 10 editorial",
+  "images/fashion11.jpg": "BIPA Fashion.hr - Vicko Racetin ",
+  "images/fashion12.jpg": "4a4z4 Herida",
+
+  "images/portraits1.jpg": "Rajna - Vere models",
+  "images/portraits2.jpg": "Tanita - Faith Model Managment",
+  "images/portraits3.jpg": "Dorotea - Vere models",
+  "images/portraits4.jpg": "Izabel Kovačić",
+  "images/portraits5.jpg": "Goran - Vere models",
+  "images/portraits6.jpg": "Nora - Vere models",
+  "images/portraits7.jpg": "Jan - Vere models",
+  "images/portraits8.jpg": "Lina - Vere models",
+  "images/portraits9.jpg": "Ema Franković",
+  "images/portraits10.jpg": "Vid - Faith Model Managment",
+
+  "images/work1.jpg": "Armani code - parfume ",
+  "images/work2.jpg": "Eucerin - Hyaluron-filler 3x ",
+  "images/work3.jpg": "Winner - Automatic 100 ",
+  "images/work4.jpg": "Izakova - custom made dress ",
+  "images/work5.jpg": "ZAKS x Jelena Rozga TVC ",
+  "images/work6.jpg": "BIPA - advertorial ",
+  "images/work7.jpg": "Eucerin - Hydro-protect ",
+  "images/work8.jpg": "Stella Rade - Nema te ' Eurovision 2026",
+  "images/work9.jpg": "Rossi - brend image ",
+  "images/work10.jpg": "ZFA Folklore dancing ensemble ",
+
+  
+
+  
 };
 
 function checkOrientation() {

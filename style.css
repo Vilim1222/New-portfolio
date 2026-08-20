@@ -129,7 +129,7 @@ a {
 }
 
 .gallery {
-  width: 80%;
+  /* width: 80%;*/
   position: relative !important; /* Forces the gallery to lock the text inside its boundaries */
   display: flex;
   align-items: center;

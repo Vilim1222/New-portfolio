@@ -4,18 +4,18 @@ const galleryTitle = document.getElementById("gallery-title");
 
 // 2. Map out titles for your images matching your data structure arrays
 const photoTitles = {
-  "images/fashion1.jpg": "The Fool's Journey fashion project",
+  "images/fashion1.jpg": "The Fool's Journey - fashion project",
   "images/fashion2.jpg": "GloriaIN - Velvet noir editorial",
   "images/fashion3.jpg": "flaw - Wearing resistance editorial",
   "images/fashion4.jpg": "Izakova SS 26",
-  "images/fashion5.jpg": "Anatticus The Mind Behind The Making",
+  "images/fashion5.jpg": "Anatticus - The Mind Behind The Making",
   "images/fashion6.jpg": "Anatticus collection",
-  "images/fashion7.jpg": "Jean Paul Gaultier fashion project",
-  "images/fashion8.jpg": "Stages of grief fashion project",
-  "images/fashion9.jpg": "Y2K fashion project",
+  "images/fashion7.jpg": "Jean Paul Gaultier - fashion project",
+  "images/fashion8.jpg": "Stages of grief - fashion project",
+  "images/fashion9.jpg": "Y2K - fashion project",
   "images/fashion10.jpg": "GloriaIN - DIPMOD 10 editorial",
   "images/fashion11.jpg": "BIPA Fashion.hr - Vicko Racetin ",
-  "images/fashion12.jpg": "4a4z4 Herida",
+  "images/fashion12.jpg": "Antea Zimaj - Herida",
 
   "images/portraits1.jpg": "Rajna - Vere models",
   "images/portraits2.jpg": "Tanita - Faith Model Managment",

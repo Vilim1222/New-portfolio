@@ -14,7 +14,7 @@
   text-transform: uppercase;
   z-index: 5;         /* Keeps text visible above the image */
   pointer-events: none;
-
+}
 img {
   user-select: none;
   -webkit-user-drag: none;

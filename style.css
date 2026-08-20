@@ -8,8 +8,8 @@
   right: 50%;
   font-size: 9px;
   position: absolute;
-  bottom: 50%;       /* Distance from the bottom edge */
-  left: 50%    /* Distance from the left edge */
+  bottom: 50px;       /* Distance from the bottom edge */
+  left: 90%    /* Distance from the left edge */
   color: #ffffff;     /* White text color */
   font-family: sans-serif;
   font-size: 14px;

@@ -8,7 +8,7 @@ const photoTitles = {
   "images/fashion2.jpg": "FLAW. - Wearing resistance editorial",
   "images/fashion3.jpg": "GloriaIN - Velvet noir editorial",
   "images/fashion4.jpg": "Izakova SS 26",
-  "images/fashion5.jpg": "Anatticus 26,
+  "images/fashion5.jpg": "Anatticus 26",
   "images/fashion6.jpg": "Anatticus - The Mind Behind The Making",
   "images/fashion7.jpg": "Jean Paul Gaultier - fashion project",
   "images/fashion8.jpg": "Stages of grief - fashion project",

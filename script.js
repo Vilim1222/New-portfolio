@@ -1,5 +1,28 @@
 // Dodajemo na početak postojećeg JavaScripta
- function checkOrientation() {
+// 1. Reference the new title element at the top of your script
+const galleryImage = document.getElementById("gallery-image");
+const galleryTitle = document.getElementById("gallery-title");
+
+// 2. Map out titles for your images matching your data structure arrays
+const photoTitles = {
+  "images/fashion1.jpg": "The Fool's Journey fashion project",
+  "images/fashion2.jpg": "GloriaIN - Velvet noir editorial",
+  "images/portrait1.jpg": "Rajna - Vere models",
+  // Map all your image paths to their respective titles here...
+};
+
+// 3. Update this inside your existing function that changes the image src
+function updateGalleryDisplay(newSrc) {
+  galleryImage.src = newSrc;
+  
+  // Dynamically update the text in the bottom left corner
+  if (photoTitles[newSrc]) {
+    galleryTitle.textContent = photoTitles[newSrc];
+  } else {
+    galleryTitle.textContent = ""; // Clear text if no title is assigned
+  }
+} 
+function checkOrientation() {
   const isMobile = window.innerWidth <= 768;
   const isPortrait = window.matchMedia("(orientation: portrait)").matches;
   

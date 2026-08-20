@@ -9,6 +9,21 @@ img {
   -webkit-user-drag: none;
 }
 
+.photo-title {
+  font-size: 9px;
+  position: absolute;
+  right: 50px;
+  bottom: 50px; 
+      /* Distance from the bottom edge */   /* Distance from the left edge */
+  color: #ffffff;     /* White text color */
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 99;         /* Keeps text visible above the image */
+  pointer-events: none;
+  opacity: 0.5; 
+  opacity: 0.7; 
+}
 
 body {
 font-family: 'Work Sans', sans-serif;

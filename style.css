@@ -332,6 +332,43 @@ a {
     /*background-color: #f5f5f5; /* Neutralna pozadina za bijele margine */
   }
 }
+/* Mobile View Corrections (Screens under 768px wide) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack sidebar above content */
+    height: auto;
+    overflow: visible;
+  }
+
+  .sidebar {
+    width: 100%; /* Take up full width on mobile */
+    padding: 20px;
+    align-items: flex-start; /* Keeps logo in the top-left */
+    justify-content: flex-start;
+  }
+
+  .logo {
+    width: 80px; /* Marginally smaller logo for mobile screens */
+    margin-bottom: 15px;
+  }
+
+  .menu {
+    margin-top: 10px;
+  }
+
+  /* Shrinks the credits/copyright info */
+  .info .copyright-text {
+    font-size: 9px; /* Reduced from 11px */
+    padding-top: 20px; /* Reduced massive 100px padding for mobile */
+  }
+
+  /* Shrinks the absolute positioned photo title if needed */
+  .photo-title {
+    font-size: 10px; 
+    bottom: 20px;
+  }
+}
+
   
   /* ... ostali portrait stilovi ... */
 }

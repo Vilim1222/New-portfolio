@@ -128,12 +128,14 @@ a {
 }
 
 .gallery {
+  height: auto;
   width: 80%;
   position: relative !important; /* Forces the gallery to lock the text inside its boundaries */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  object-fit: contain
 }
 
 

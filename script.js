@@ -6,7 +6,7 @@ const galleryTitle = document.getElementById("gallery-title");
 const photoTitles = {
   "images/fashion1.jpg": "The Fool's Journey - fashion project",
   "images/fashion2.jpg": "GloriaIN - Velvet noir editorial",
-  "images/fashion3.jpg": "flaw - Wearing resistance editorial",
+  "images/fashion3.jpg": "FLAW. - Wearing resistance editorial",
   "images/fashion4.jpg": "Izakova SS 26",
   "images/fashion5.jpg": "Anatticus - The Mind Behind The Making",
   "images/fashion6.jpg": "Anatticus collection",

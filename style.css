@@ -129,12 +129,12 @@ a {
 }
 
 .gallery {
-  width: 80%;
-  position: relative !important; /* Forces the gallery to lock the text inside its boundaries */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  
+  max-width: 100%;       /* Keeps wide images inside the slider */
+  max-height: 100vh;     /* Keeps tall images inside the slider */
+  width: auto;           /* Preserves original picture proportions */
+  height: auto;          /* Preserves original picture proportions */
+  object-fit: contain; 
 }
 
 .photo-title {
@@ -324,12 +324,13 @@ a {
     object-position: center;
   }
 
-  .gallery {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /*background-color: #f5f5f5; /* Neutralna pozadina za bijele margine */
-  }
+.gallery img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain !important;
+  object-position: center;
+
 }
 /* Mobile View Corrections (Screens under 768px wide) */
 @media (max-width: 768px) {

@@ -4,11 +4,10 @@
   box-sizing: border-box;
 }
 .photo-title {
-  
-  right: 50px;
-  bottom: 50px; 
   font-size: 9px;
   position: absolute;
+  right: 50px;
+  bottom: 50px; 
       /* Distance from the bottom edge */   /* Distance from the left edge */
   color: #ffffff;     /* White text color */
   font-family: sans-serif;
@@ -129,7 +128,7 @@ a {
 }
 
 .gallery {
-  /* width: 80%;*/
+  width: 80%;
   position: relative !important; /* Forces the gallery to lock the text inside its boundaries */
   display: flex;
   align-items: center;
@@ -137,42 +136,7 @@ a {
   overflow: hidden;
 }
 
-.photo-title {
-  position: absolute;
-  bottom: 20px;       /* Fixed distance from the bottom of the gallery */
-  
-  /* CHOOSE ONE SIDE: */
-  left: 20px;         /* Use this for BOTTOM LEFT */
-  /* right: 20px; */  /* Remove comment marker and delete 'left' for BOTTOM RIGHT */
-  
-  color: #000000;     /* Changed to black so it is visible against your white site background */
-  font-family: sans-serif;
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  z-index: 99;        /* Pushes it safely above any sliding images */
-  pointer-events: none;
-}
 
-}
-
-.photo-title {
-  position: absolute;
-  bottom: 20px;       /* Fixed distance from the bottom of the gallery */
-  
-  /* CHOOSE ONE SIDE: */
-  left: 20px;         /* Use this for BOTTOM LEFT */
-  /* right: 20px; */  /* Remove comment marker and delete 'left' for BOTTOM RIGHT */
-  
-  color: #000000;     /* Changed to black so it is visible against your white site background */
-  font-family: sans-serif;
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  z-index: 99;        /* Pushes it safely above any sliding images */
-  pointer-events: none;
-}
-}
 
 .arrow.right {
   right: 20px;

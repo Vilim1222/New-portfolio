@@ -1,8 +1,6 @@
-// 1. Reference core document layout endpoints
 const galleryImage = document.getElementById("gallery-image");
 const galleryTitle = document.getElementById("gallery-title");
 
-// 2. Map out text titles matching data structure arrays
 const photoTitles = {
   "images/fashion1.jpg": "The Fool's Journey - fashion project",
   "images/fashion2.jpg": "FLAW. - Wearing resistance editorial",
@@ -37,7 +35,6 @@ const photoTitles = {
   "images/work8.jpg": "ZFA Folklore ensemble"
 };
 
-// 3. Document Category Track Repositories
 const categories = {
   fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg', 'images/fashion11.jpg'],
   portraits: ['images/portraits1.jpg', 'images/portraits2.jpg', 'images/portraits3.jpg', 'images/portraits4.jpg', 'images/portraits5.jpg', 'images/portraits6.jpg', 'images/portraits7.jpg', 'images/portraits8.jpg', 'images/portraits9.jpg', 'images/portraits10.jpg'],
@@ -47,23 +44,19 @@ const categories = {
 let currentCategory = 'fashion';
 let currentIndex = 0;
 
-// Gather reference selectors for both Desktop AND Mobile navigation item blocks
 const desktopNavItems = document.querySelectorAll('.sidebar nav.menu ul li');
 const mobileNavItems = document.querySelectorAll('.mobile-nav .mobile-link');
 
-// 4. Mobile Menu Navigation Structural Interactions
 const menuToggle = document.getElementById("menuToggle");
 const mobileNav = document.getElementById("mobileNav");
 
 if (menuToggle && mobileNav) {
   menuToggle.addEventListener("click", () => {
-    // Synchronously open/close menu layout panels and animate hamburger icons into close buttons
     menuToggle.classList.toggle("open");
     mobileNav.classList.toggle("open");
   });
 }
 
-// Helper core to update text layouts dynamically inside sliders
 function updateImage() {
   const images = categories[currentCategory];
   const currentSrc = images[currentIndex];
@@ -81,16 +74,13 @@ function updateImage() {
   }
 }
 
-// Clean synchronizer managing both desktop selection and mobile panel link state
 function setActiveCategory(category) {
-  // Clear desktop nodes
   desktopNavItems.forEach(item => item.classList.remove('active'));
   const activeDesktopItem = Array.from(desktopNavItems).find(
     item => item.getAttribute('data-category') === category
   );
   if (activeDesktopItem) activeDesktopItem.classList.add('active');
 
-  // Clear mobile nodes
   mobileNavItems.forEach(item => item.classList.remove('active'));
   const activeMobileItem = Array.from(mobileNavItems).find(
     item => item.getAttribute('data-category') === category
@@ -98,7 +88,6 @@ function setActiveCategory(category) {
   if (activeMobileItem) activeMobileItem.classList.add('active');
 }
 
-// Arrow click adjustments
 document.querySelector('.arrow.left').addEventListener('click', () => {
   const images = categories[currentCategory];
   currentIndex = (currentIndex - 1 + images.length) % images.length;
@@ -111,7 +100,6 @@ document.querySelector('.arrow.right').addEventListener('click', () => {
   updateImage();
 });
 
-// Desktop Click Event Binding Mapping
 desktopNavItems.forEach(item => {
   item.addEventListener('click', () => {
     currentCategory = item.getAttribute('data-category');
@@ -121,7 +109,6 @@ desktopNavItems.forEach(item => {
   });
 });
 
-// Mobile Click Event Binding Mapping
 mobileNavItems.forEach(item => {
   item.addEventListener('click', () => {
     currentCategory = item.getAttribute('data-category');
@@ -129,7 +116,6 @@ mobileNavItems.forEach(item => {
     setActiveCategory(currentCategory);
     updateImage();
 
-    // Auto-collapse mobile full-screen views after selecting target category
     if (menuToggle && mobileNav) {
       menuToggle.classList.remove("open");
       mobileNav.classList.remove("open");
@@ -137,19 +123,14 @@ mobileNavItems.forEach(item => {
   });
 });
 
-// Boot systems smoothly on primary execution
 setActiveCategory(currentCategory);
 updateImage();
 
-/* ==========================================================================
-   LEGACY ORIENTATION AND RESPONSIVE MONITOR LOGIC HANDLERS
-   ========================================================================== */
 function checkOrientation() {
-  // Safe validation setup checking for rotate-overlays inside source HTML tree layouts
   const overlay = document.querySelector('.rotate-overlay');
   const container = document.querySelector('.container');
   
-  if (!overlay) return; // Ignores safety loops cleanly if element is commented out/removed
+  if (!overlay) return; 
 
   const isMobile = window.innerWidth <= 768;
   const isPortrait = window.matchMedia("(orientation: portrait)").matches;

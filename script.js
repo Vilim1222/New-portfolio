@@ -40,7 +40,7 @@ const photoTitles = {
 const categories = {
   fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg', 'images/fashion11.jpg'],
   portraits: ['images/portraits1.jpg', 'images/portraits2.jpg', 'images/portraits3.jpg', 'images/portraits4.jpg', 'images/portraits5.jpg', 'images/portraits6.jpg', 'images/portraits7.jpg', 'images/portraits8.jpg', 'images/portraits9.jpg', 'images/portraits10.jpg'],
-  work: ['images/work1.jpg', 'images/work2.jpg', 'images/work3.jpg', 'images/work4.jpg', 'images/work5.jpg', 'images/work6.jpg', 'images/work7.jpg', 'images/work8.jpg', 'images/work9.jpg', 'images/work10.jpg'],
+  work: ['images/work1.jpg', 'images/work2.jpg', 'images/work3.jpg', 'images/work4.jpg', 'images/work5.jpg', 'images/work6.jpg', 'images/work7.jpg', 'images/work8.jpg', 'images/work9.jpg', 'images/work10.jpg']
 };
 
 let currentCategory = 'fashion';
@@ -128,29 +128,30 @@ mobileNavItems.forEach(item => {
 setActiveCategory(currentCategory);
 updateImage();
 
-// NEW EMBEDDED ENGINE: QR INGRESS DETECTOR & TAP ANYWHERE DISMISS SYSTEM
+// ==========================================================================
+// NEW EMULATOR ENGINE: AUTOMATIC DEVICE ENGINE DETECTION & INSTANT TAP EXIT
+// ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
   const welcomeOverlay = document.getElementById('welcomeOverlay');
   
   if (welcomeOverlay) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const isFromQR = urlParams.get('ref') === 'qr';
+    // 1. Isolate detection to smart devices loaded in portrait orientation mode
+    const isMobilePortrait = window.innerWidth <= 768 && window.matchMedia("(orientation: portrait)").matches;
+    
+    // 2. Read Session Storage properties to guarantee it only triggers once per visit
+    const hasSeenWelcome = sessionStorage.getItem('hasSeenPortfolioWelcome');
 
-    if (isFromQR) {
-      // Reveal splash viewport dynamically
+    if (isMobilePortrait && !hasSeenWelcome) {
       welcomeOverlay.classList.add('active');
-
-      // Flush parameters to block repeat greeting prompts upon subsequent refreshes
-      const cleanURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
-      window.history.replaceState({ path: cleanURL }, '', cleanURL);
+      sessionStorage.setItem('hasSeenPortfolioWelcome', 'true');
     }
 
-    // Dismissal fading logic upon checking interaction sweeps ANYWHERE on page canvas structures
+    // 3. Dismissal sequence triggered when tapping ANYWHERE on the screen element
     welcomeOverlay.addEventListener('click', () => {
       welcomeOverlay.style.opacity = '0';
       setTimeout(() => {
         welcomeOverlay.classList.remove('active');
-      }, 400); 
+      }, 400); // Allow clean fade-out timeline threshold to clear safely
     });
   }
 });

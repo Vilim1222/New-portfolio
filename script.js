@@ -32,15 +32,15 @@ const photoTitles = {
   "images/work5.jpg": "Rossi - brande image",
   "images/work6.jpg": "Eucerin - Hydro-protect",
   "images/work7.jpg": "BIPA - advertorijal",
-  "images/work8.jpg": "ZFA Folklore ensemble"
-  "images/work9.jpg": "Veil of truth and light - Art project"
-  "images/work8.jpg": "Prizori promatrača - Art project"
+  "images/work8.jpg": "ZFA Folklore ensemble",
+  "images/work9.jpg": "Veil of truth and light - Art project",
+  "images/work8.jpg": "Prizori promatrača - Art project",
 };
 
 const categories = {
   fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg', 'images/fashion11.jpg'],
   portraits: ['images/portraits1.jpg', 'images/portraits2.jpg', 'images/portraits3.jpg', 'images/portraits4.jpg', 'images/portraits5.jpg', 'images/portraits6.jpg', 'images/portraits7.jpg', 'images/portraits8.jpg', 'images/portraits9.jpg', 'images/portraits10.jpg'],
-  work: ['images/work1.jpg', 'images/work2.jpg', 'images/work3.jpg', 'images/work4.jpg', 'images/work5.jpg', 'images/work6.jpg', 'images/work7.jpg', 'images/work8.jpg', 'images/work9.jpg', 'images/work10.jpg']
+  work: ['images/work1.jpg', 'images/work2.jpg', 'images/work3.jpg', 'images/work4.jpg', 'images/work5.jpg', 'images/work6.jpg', 'images/work7.jpg', 'images/work8.jpg', 'images/work9.jpg', 'images/work10.jpg'],
 };
 
 let currentCategory = 'fashion';

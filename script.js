@@ -32,8 +32,8 @@ const photoTitles = {
   "images/work5.jpg": "Rossi - brande image",
   "images/work6.jpg": "Eucerin - Hydro-protect",
   "images/work7.jpg": "BIPA - advertorijal",
-  "images/work8.jpg": "ZFA Folklore ensemble",
-  "images/work9.jpg": "Veil of truth and light - Art project",
+  "images/work8.jpg": "Veil of truth and light - Art project",
+  "images/work9.jpg": "ZFA Folklore ensemble",
   "images/work8.jpg": "Prizori promatrača - Art project",
 };
 

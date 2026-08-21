@@ -37,40 +37,6 @@ font-size: 11px;
 padding-top: 100px
 }
 
-/* Rotacijska poruka - sakrivena po defaultu 
-.rotate-overlay {
- display: none;
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background-color: #fff;
- z-index: 1000;
- justify-content: center;
- align-items: center;
- flex-direction: column;
- text-align: center;
-}
-
-.rotate-message {
- padding: 20px;
- max-width: 80%;
-}
-
-.rotate-icon-container {
- display: flex;
- justify-content: center;
- width: 100%;
- margin-top: 20px;
-}
-
-.rotate-icon {
- width: 50px;
- height: 50px;
- animation: rotate 2s infinite linear;
-} */
-
 @keyframes rotate {
 from { transform: rotate(0deg); }
 to { transform: rotate(360deg); }
@@ -173,6 +139,11 @@ left: 20px;
 right: 20px;
 }
 
+/* HIDE RESPONSIVE COMPONENT ASSETS ON DESKTOP LAYOUTS */
+.mobile-header, .mobile-nav {
+  display: none;
+}
+
 @media (max-width: 768px) {
 .container {
 flex-direction: column;
@@ -187,26 +158,26 @@ grid-template-areas:
 grid-template-columns: 1fr 1fr;
 gap: 15px;
 padding: 15px;
-align-items: start; /* Promijenjeno iz center u start */
+align-items: start;
 }
 
 .logo {
 grid-area: logo;
 width: 80px;
 justify-self: end;
-margin-top: 0.5em; /* Dodano za finu korekciju pozicije */
+margin-top: 0.5em;
 position: relative;
-top: 0.25em; /* Dodano za precizno podešavanje */
+top: 0.25em;
 }
 
 .menu {
 grid-area: menu;
-align-self: start; /* Promijenjeno iz center u start */
+align-self: start;
 height: 100%;
 display: flex;
 flex-direction: column;
-gap: 0.8em; /* Bolje od justify-content: center */
-padding-top: 0.25em; /* Dodano za finu korekciju */
+gap: 0.8em;
+padding-top: 0.25em;
 }
 
 .info {
@@ -234,6 +205,7 @@ width: 35px;
 height: 35px;
 }
 }
+
 @media (max-width: 768px) and (orientation: landscape) {
 .container {
 flex-direction: row !important;
@@ -281,51 +253,110 @@ font-size: 11px;
 }
 }
 
-
-
 @media (max-width: 768px) and (orientation: portrait) {
-/* Ovdje ostavi sve postojeće portrait style koje smo ranije definirali */
-.sidebar {
-width: 100%;
-display: grid;
-grid-template-areas: 
-"menu logo"
-"menu info";
-grid-template-columns: 1fr 1fr;
-gap: 15px;
-padding: 15px;
-padding-top: 0px;
-align-items: start;
-}
+  /* 1. Completely hide original grid template menu header frame */
+  .sidebar {
+    display: none !important;
+  }
 
-.logo {
-grid-area: logo;
-width: 80px;
-justify-self: end;
-position: relative;
-top: 1.50em;
-}
-.info {
-font-size: 11px;
-}
-.info 2{
-font-size: 7px;
-}
-.gallery img {
-width: 100%;
-height: auto;
-max-height: 80vh;
-object-fit: contain !important; /* Osigurava cijelu sliku vidljivu bez cropanja */
-object-position: center;
-}
+  /* Expand canvas boundary constraints */
+  .gallery {
+    width: 100%;
+    height: 100vh;
+  }
 
-.gallery {
-display: flex;
-align-items: center;
-justify-content: center;
-/*background-color: #f5f5f5; /* Neutralna pozadina za bijele margine */
-}
-}
+  .gallery img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain !important;
+    object-position: center;
+  }
 
-/* ... ostali portrait stilovi ... */
+  /* 2. Show Mobile Header & Top-Left Hamburger Layout */
+  .mobile-header {
+    display: block;
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    z-index: 9999; /* Stays above everything */
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #000000; /* Pure black simple bars */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* X Animation Transition Shifts when opened */
+  .menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* 3. Full-Screen Drawer Menu Implementation */
+  .mobile-nav {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between; /* Links at top, copy at bottom */
+    position: fixed;
+    top: 0;
+    left: -100vw; /* Tucked cleanly completely off screen */
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 9998;
+    padding: 100px 40px 50px 40px;
+    box-sizing: border-box;
+    transition: left 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+  }
+
+  /* Class injected smoothly via script */
+  .mobile-nav.open {
+    left: 0;
+  }
+
+  /* Keep text properties clean and simple */
+  .mobile-menu-links .mobile-link {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 8px 0;
+    color: #000000;
+    transition: font-weight 0.2s ease;
+  }
+
+  .mobile-menu-links .mobile-link.active {
+    font-weight: 600;
+  }
+
+  .mobile-menu-footer {
+    font-size: 11px;
+    line-height: 1.6;
+    color: #000000;
+  }
+
+  .mobile-menu-footer a {
+    text-decoration: underline;
+  }
 }

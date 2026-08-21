@@ -34,7 +34,7 @@ const photoTitles = {
   "images/work7.jpg": "BIPA - advertorijal",
   "images/work8.jpg": "Veil of truth and light - Art project",
   "images/work9.jpg": "ZFA Folklore ensemble",
-  "images/work8.jpg": "Prizori promatrača - Art project",
+  "images/work10.jpg": "Prizori promatrača - Art project",
 };
 
 const categories = {

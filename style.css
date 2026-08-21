@@ -1,285 +1,57 @@
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-
+/* ==========================================================================
+   ADDED FUNCTIONAL PROPERTIES (DO NOT REMOVE YOUR INITIAL RULES)
+   ========================================================================== */
 img {
   user-select: none;
   -webkit-user-drag: none;
 }
 
-.photo-title {
-  font-size: 11px;       /* Slightly larger for clear readability */
-  position: absolute;
-  bottom: 25px;          /* Clean distance from the bottom framework */
-  right: 50px;
-/* Aligns nicely inside the left boundary of your image box */
-  color: #000000;        /* Changed to black so it shows over white margins and backgrounds */
-  font-family: sans-serif;
-  letter-spacing: 1px;
-  z-index: 99;           /* Guarantees it sits above structural image layers */
-  pointer-events: none;
-  opacity: 0.8; 
-}
-
-body {
-font-family: 'Work Sans', sans-serif;
-background-color: #fff;
-color: #000;
-}
-a {
-color: inherit; /* Removes the blue color */
-/* text-decoration: none; Optional: Removes the underline */
-}
-.info .copyright-text {
-font-size: 11px; 
-padding-top: 100px
-}
-
-@keyframes rotate {
-from { transform: rotate(0deg); }
-to { transform: rotate(360deg); }
-}
-.container {
-display: flex;
-height: 100vh;
-overflow: hidden;
-}
-
-.sidebar {
-width: 20%;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-padding: 30px;
-}
-
-.logo {
-width: 100px;
-height: auto;
-}
-
-.menu {
-display: flex;
-flex-direction: column;
-gap: 15px;
-margin-top: 30px;
-}
-
-.menu ul {
-list-style: none;
-}
-
-.menu li {
-font-size: 18px;
-cursor: pointer;
-padding: 5px 0;
-position: relative;
-font-weight: 400;
-transition: font-weight 0.2s ease;
-}
-
-.menu li:hover {
-text-decoration: underline;
-}
-
-.menu li.active {
-font-weight: 600;
-}
-
-.info {
-font-size: 14px;
-line-height: 1.6;
-}
-
-.gallery {
-width: 80%;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-}
-
-.gallery img {
-max-height: 100vh;
-width: auto;
-height: 100%;
-object-fit: cover;
-transition: opacity 0.5s ease-in-out;
-}
-
-.arrow {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-font-size: 30px;
-color: black;
-border-radius: 50%;
-width: 40px;
-height: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-user-select: none;
-opacity: 0.4;
-}
-
-.arrow:hover {
-opacity: 1;
-}
-
-.arrow.left {
-left: 20px;
-}
-
-.arrow.right {
-right: 20px;
-}
-
-/* HIDE RESPONSIVE COMPONENT ASSETS ON DESKTOP LAYOUTS */
+/* Hide mobile controls on desktop configurations by default */
 .mobile-header, .mobile-nav {
   display: none;
 }
 
-@media (max-width: 768px) {
-.container {
-flex-direction: column;
-}
-
-.sidebar {
-width: 100%;
-display: grid;
-grid-template-areas: 
-"menu logo"
-"menu info";
-grid-template-columns: 1fr 1fr;
-gap: 15px;
-padding: 15px;
-align-items: start;
-}
-
-.logo {
-grid-area: logo;
-width: 80px;
-justify-self: end;
-margin-top: 0.5em;
-position: relative;
-top: 0.25em;
-}
-
-.menu {
-grid-area: menu;
-align-self: start;
-height: 100%;
-display: flex;
-flex-direction: column;
-gap: 0.8em;
-padding-top: 0.25em;
-}
-
-.info {
-grid-area: info;
-justify-self: end;
-text-align: right;
-align-self: end;
-}
-
-.gallery {
-width: 100%;
-height: calc(100vh - 200px);
-order: 3;
-}
-
-.menu li {
-font-size: 16px;
-white-space: nowrap;
-line-height: 1.3;
-}
-
-.arrow {
-font-size: 24px;
-width: 35px;
-height: 35px;
-}
-}
-
-@media (max-width: 768px) and (orientation: landscape) {
-.container {
-flex-direction: row !important;
-height: 100vh;
-}
-
-.sidebar {
-width: 25% !important;
-display: flex !important;
-flex-direction: column !important;
-justify-content: flex-start !important;
-padding: 20px !important;
-align-items: flex-start !important;
-}
-
-.logo {
-width: 80px !important;
-margin-bottom: 15px !important;
-align-self: flex-start !important;
-}
-
-.menu {
-flex: 1;
-width: 100% !important;
-display: flex !important;
-flex-direction: column !important;
-gap: 15px !important;
-margin: 0 !important;
-padding: 0 !important;
-}
-
-.info {
-margin-top: auto !important;
-padding-bottom: 20px !important;
-align-self: flex-start !important;
-text-align: left !important;
-}
-
-.gallery {
-width: 75% !important;
-height: 100vh !important;
-}
-.info {
-font-size: 11px;
-}
-}
-
+/* ==========================================================================
+   MOBILE PORTRAIT STYLES OVERRIDE (TRIGGERED AT <= 768px PORTRAIT)
+   ========================================================================== */
 @media (max-width: 768px) and (orientation: portrait) {
-  /* 1. Completely hide original grid template menu header frame */
+
+  /* Clean up the main layout frame to yield full canvas height */
+  .container {
+    flex-direction: column !important;
+    height: 100vh !important;
+    position: relative;
+  }
+
+  /* Completely hide the old desktop grid layout block in mobile portrait */
   .sidebar {
     display: none !important;
   }
 
-  /* Expand canvas boundary constraints */
+  /* Expand gallery display workspace across full screen */
   .gallery {
-    width: 100%;
-    height: 100vh;
+    width: 100% !important;
+    height: 100vh !important;
+    order: 1 !important;
   }
 
   .gallery img {
-    width: 100%;
-    height: auto;
-    max-height: 85vh;
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw !important;
+    max-height: 80vh !important;
     object-fit: contain !important;
-    object-position: center;
   }
 
-  /* 2. Show Mobile Header & Top-Left Hamburger Layout */
+  /* ------------------------------------------------------------------------
+     1. Hamburger Menu Trigger Button (Top Left Corner)
+     ------------------------------------------------------------------------ */
   .mobile-header {
     display: block;
     position: fixed;
     top: 25px;
     left: 25px;
-    z-index: 9999; /* Stays above everything */
+    z-index: 9999; /* Higher than full-screen layout overlays */
   }
 
   .menu-toggle {
@@ -287,7 +59,7 @@ font-size: 11px;
     flex-direction: column;
     justify-content: space-between;
     width: 24px;
-    height: 16px;
+    height: 18px;
     background: none;
     border: none;
     cursor: pointer;
@@ -296,64 +68,81 @@ font-size: 11px;
 
   .menu-toggle .bar {
     width: 100%;
-    height: 2px;
-    background-color: #000000; /* Pure black simple bars */
+    height: 2px; /* Sleek structural width matching simple aesthetic */
+    background-color: #000000;
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
-  /* X Animation Transition Shifts when opened */
+  /* Transformations mapping menu lines into an elegant "X" close mark */
   .menu-toggle.open .bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
+
   .menu-toggle.open .bar:nth-child(2) {
     opacity: 0;
   }
+
   .menu-toggle.open .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 
-  /* 3. Full-Screen Drawer Menu Implementation */
+  /* ------------------------------------------------------------------------
+     2. Full-Screen Mobile Drawer View Overlays
+     ------------------------------------------------------------------------ */
   .mobile-nav {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Links at top, copy at bottom */
+    justify-content: space-between;
     position: fixed;
     top: 0;
-    left: -100vw; /* Tucked cleanly completely off screen */
+    left: -100vw; /* Tucked cleanly off-screen left by default */
     width: 100vw;
     height: 100vh;
     background-color: #ffffff;
     z-index: 9998;
-    padding: 100px 40px 50px 40px;
     box-sizing: border-box;
-    transition: left 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+    padding: 100px 30px 40px 30px; /* Gives top-left hamburger breathing room */
+    transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
-  /* Class injected smoothly via script */
+  /* Triggers clean sliding entry animation when active */
   .mobile-nav.open {
     left: 0;
   }
 
-  /* Keep text properties clean and simple */
-  .mobile-menu-links .mobile-link {
-    display: block;
-    font-size: 18px;
+  /* Clean and Simple Link Formatting inheriting your exact font rules */
+  .mobile-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-link {
+    font-size: 18px; /* Matching your exact desktop configuration text sizes */
     font-weight: 400;
-    letter-spacing: 1px;
-    cursor: pointer;
-    padding: 8px 0;
     color: #000000;
-    transition: font-weight 0.2s ease;
+    cursor: pointer;
+    letter-spacing: 1px;
+    align-self: flex-start;
   }
 
-  .mobile-menu-links .mobile-link.active {
-    font-weight: 600;
+  .mobile-link:hover {
+    text-decoration: underline;
   }
 
+  .mobile-link.active {
+    font-weight: 600; /* Mirrors desktop dynamic highlights */
+  }
+
+  /* ------------------------------------------------------------------------
+     3. Bottom Menu Footer Alignment (Info & Copyright)
+     ------------------------------------------------------------------------ */
   .mobile-menu-footer {
-    font-size: 11px;
+    font-family: inherit;
+    font-size: 11px; /* Keeping your clean and discrete typography scale */
     line-height: 1.6;
     color: #000000;
+    text-align: left;
   }
 
   .mobile-menu-footer a {

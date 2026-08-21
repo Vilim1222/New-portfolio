@@ -129,29 +129,36 @@ setActiveCategory(currentCategory);
 updateImage();
 
 // ==========================================================================
-// NEW EMULATOR ENGINE: AUTOMATIC DEVICE ENGINE DETECTION & INSTANT TAP EXIT
+// DETECTS QR ENTRY MODE ON EVERY NEW SCAN VS NAVIGATION LINKS
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
   const welcomeOverlay = document.getElementById('welcomeOverlay');
   
   if (welcomeOverlay) {
-    // 1. Isolate detection to smart devices loaded in portrait orientation mode
+    // 1. Target mobile screens in portrait view exclusively
     const isMobilePortrait = window.innerWidth <= 768 && window.matchMedia("(orientation: portrait)").matches;
     
-    // 2. Read Session Storage properties to guarantee it only triggers once per visit
-    const hasSeenWelcome = sessionStorage.getItem('hasSeenPortfolioWelcome');
+    // 2. Read the active URL query parameter token
+    const urlParams = new URLSearchParams(window.location.search);
+    const hasBrowsingToken = urlParams.get('view') === 'portfolio';
 
-    if (isMobilePortrait && !hasSeenWelcome) {
+    // 3. Trigger condition: If they are on mobile portrait and do NOT have the browsing token, show screen
+    if (isMobilePortrait && !hasBrowsingToken) {
       welcomeOverlay.classList.add('active');
-      sessionStorage.setItem('hasSeenPortfolioWelcome', 'true');
     }
 
-    // 3. Dismissal sequence triggered when tapping ANYWHERE on the screen element
+    // 4. Dismissal animation logic when tapping anywhere on the overlay screen
     welcomeOverlay.addEventListener('click', () => {
       welcomeOverlay.style.opacity = '0';
+      
+      // Quietly append the browsing token so future links and category refreshes skip this screen
+      const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname + "?view=portfolio";
+      window.history.replaceState({ path: newURL }, '', newURL);
+
       setTimeout(() => {
         welcomeOverlay.classList.remove('active');
-      }, 400); // Allow clean fade-out timeline threshold to clear safely
+        welcomeOverlay.style.opacity = ''; // Reset opacity helper state safely
+      }, 400); 
     });
   }
 });

@@ -140,7 +140,7 @@ left: 20px;
 right: 20px;
 }
 
-/* HIDE NEW SYSTEM LAYOUT LAYERS ON STANDARD DESKTOP MONITORS BY DEFAULT */
+/* HIDE RESPONSIVE PHONE SYSTEM CONTROLS ON DESKTOP LAYOUTS BY DEFAULT */
 .mobile-header, .mobile-nav, .qr-welcome-overlay {
   display: none !important;
 }
@@ -283,7 +283,6 @@ font-size: 11px;
     object-fit: contain !important;
   }
 
-  /* PHOTO LABEL POSITION: Clean font, raised to 95px, precise right boundary placement */
   .photo-title {
     font-size: 9px !important;       
     bottom: 95px !important;         
@@ -345,7 +344,7 @@ font-size: 11px;
     pointer-events: auto;
   }
 
-  /* Full-Screen Minimal Navigation Menu Drawer (Footer text padded up to 80px) */
+  /* Full-Screen Minimal Navigation Menu Drawer */
   .mobile-nav {
     display: flex !important;
     flex-direction: column;
@@ -402,7 +401,7 @@ font-size: 11px;
   }
 
   /* ------------------------------------------------------------------------
-     3. QR Welcome Splash Screen Layout (Replicating user layout exactly)
+     3. Welcome Screen Blueprint Styling Layout (Matches Image Preview)
      ------------------------------------------------------------------------ */
   .qr-welcome-overlay {
     display: flex !important;
@@ -415,7 +414,7 @@ font-size: 11px;
     width: 100vw;
     height: 100vh;
     background-color: #ffffff;
-    z-index: 100005; /* Highest window z-index layer threshold */
+    z-index: 100005; /* Highest layer threshold overlay */
     padding: 15vh 30px 6vh 30px;
     box-sizing: border-box;
     text-align: center;
@@ -426,7 +425,6 @@ font-size: 11px;
     transition: opacity 0.4s ease-in-out;
   }
 
-  /* Injected via script on portrait smartphone detection */
   .qr-welcome-overlay.active {
     opacity: 1;
     pointer-events: auto;
@@ -438,48 +436,43 @@ font-size: 11px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
   }
 
   .qr-heading-main {
     font-family: 'Work Sans', sans-serif;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 500;
     color: #000000;
     text-align: center;
     letter-spacing: 1px;
     line-height: 1.35;
+    margin-bottom: 35px;
+    margin-top: -40px; /* Shifts content up from visual layout dead center */
   }
 
   .qr-subheading-text {
     font-family: 'Work Sans', sans-serif;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 300;
     color: #000000;
     text-align: center;
     line-height: 1.45;
-    margin-top: 15px;
+    margin-bottom: 50px;
   }
 
-  /* Custom Logo Outline Recreation: Crisp solid frames black line stroke */
+  /* RECOGNIZED BRAND LOGO FRAME: Handles the precise sizing of your actual SVG container layout */
   .qr-center-emblem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px 0;
+    width: 110px; /* Aligns proportions beautifully with image bounds */
+    height: auto;
+    margin-bottom: 80px;
+    display: block;
   }
-
-  .qr-center-emblem .qr-box {
-    display: inline-block;
-    width: 25px;
-    height: 45px;
-    border: 2px solid #000000; /* Crisp thin boundary frame strokes */
-    background-color: transparent;
-    margin-right: -2px; /* Pulls layers seamlessly together into singular lines */
-  }
-
-  .qr-center-emblem .qr-box:last-child {
-    margin-right: 0;
+  
+  .qr-center-emblem svg {
+    width: 100%;
+    height: auto;
   }
 
   .qr-action-prompt {
@@ -490,16 +483,19 @@ font-size: 11px;
     text-decoration: underline;
     text-underline-offset: 4px;
     letter-spacing: 0.5px;
-    margin-top: 20px;
+    margin-bottom: 120px; /* Gives perfect vertical space matching layout design specifications */
   }
 
+  /* MOVED UP COPYRIGHT TEXT: Lifted significantly from layout boundary line edge */
   .qr-bottom-stamp {
     font-family: 'Work Sans', sans-serif;
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 400;
-    color: #888888;
+    color: #000000;
     letter-spacing: 0.5px;
+    position: absolute;
+    bottom: 85px; /* Shifted higher up from 55px to ensure spacious separation */
     text-align: center;
-    margin-top: auto;
+    opacity: 0.8;
   }
 }

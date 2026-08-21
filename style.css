@@ -283,17 +283,17 @@ font-size: 11px;
     object-fit: contain !important;
   }
 
-  /* NEW UPDATES: Moving photo titles higher up, shrinking text, aligning precisely right */
+  /* PHOTO TITLE MOBILE FIX: Moved up to 95px, shrunk to 9px, forced right alignment */
   .photo-title {
-    font-size: 9px !important;       /* Clean scaled down layout size */
-    bottom: 55px !important;         /* Pushes up significantly to prevent overlap or clipping */
-    right: 25px !important;          /* Sets flush spacing matching the header margins */
+    font-size: 9px !important;       
+    bottom: 95px !important;         
+    right: 25px !important;          
     left: auto !important;
     width: auto !important;
-    text-align: right !important;    /* Precise alignment constraint */
+    text-align: right !important;    
   }
 
-  /* 1. Header Bar holding Controls permanently on main screen */
+  /* Header Bar holding controls permanently on main screen */
   .mobile-header {
     display: flex !important;
     justify-content: space-between;
@@ -339,14 +339,13 @@ font-size: 11px;
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  /* Permanent Top Right Mobile Brand Logo Frame */
   .mobile-main-logo {
     width: 80px;
     height: auto;
     pointer-events: auto;
   }
 
-  /* 2. Full-Screen Minimal Overlay Navigation Menu Drawer */
+  /* Full-Screen Minimal Overlay Navigation Menu Drawer */
   .mobile-nav {
     display: flex !important;
     flex-direction: column;

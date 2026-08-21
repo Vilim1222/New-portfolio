@@ -140,7 +140,7 @@ left: 20px;
 right: 20px;
 }
 
-/* HIDE RESPONSIVE PHONE SYSTEM CONTROLS ON DESKTOP OVERLAYS BY DEFAULT */
+/* HIDE NEW SYSTEM LAYOUT LAYERS ON STANDARD DESKTOP MONITORS BY DEFAULT */
 .mobile-header, .mobile-nav, .qr-welcome-overlay {
   display: none !important;
 }
@@ -283,7 +283,7 @@ font-size: 11px;
     object-fit: contain !important;
   }
 
-  /* PHOTO LABEL PORTRAIT SHIFT: Raised to 95px, small font, hard right bounds alignment */
+  /* PHOTO LABEL POSITION: Clean font, raised to 95px, precise right boundary placement */
   .photo-title {
     font-size: 9px !important;       
     bottom: 95px !important;         
@@ -402,26 +402,34 @@ font-size: 11px;
   }
 
   /* ------------------------------------------------------------------------
-     3. Minimalist QR Welcome Screen Splash Overlays (Wireframe Aligned)
+     3. QR Welcome Splash Screen Layout (Replicating user layout exactly)
      ------------------------------------------------------------------------ */
   .qr-welcome-overlay {
-    display: block !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: #ffffff;
-    z-index: 100000; /* Highest priority canvas threshold visibility layer */
+    z-index: 100005; /* Highest window z-index layer threshold */
+    padding: 15vh 30px 6vh 30px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease-in-out;
   }
 
+  /* Injected via script on portrait smartphone detection */
   .qr-welcome-overlay.active {
     opacity: 1;
     pointer-events: auto;
-    cursor: pointer;
   }
 
   .qr-welcome-wrapper {
@@ -430,37 +438,48 @@ font-size: 11px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-    box-sizing: border-box;
-    position: relative;
+    justify-content: space-between;
   }
 
   .qr-heading-main {
     font-family: 'Work Sans', sans-serif;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 500;
     color: #000000;
     text-align: center;
     letter-spacing: 1px;
-    line-height: 1.3;
-    margin-bottom: 35px;
+    line-height: 1.35;
   }
 
   .qr-subheading-text {
     font-family: 'Work Sans', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 300;
     color: #000000;
     text-align: center;
-    line-height: 1.4;
-    margin-bottom: 50px;
+    line-height: 1.45;
+    margin-top: 15px;
   }
 
+  /* Custom Logo Outline Recreation: Crisp solid frames black line stroke */
   .qr-center-emblem {
-    width: 75px;
-    height: auto;
-    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+  }
+
+  .qr-center-emblem .qr-box {
+    display: inline-block;
+    width: 25px;
+    height: 45px;
+    border: 2px solid #000000; /* Crisp thin boundary frame strokes */
+    background-color: transparent;
+    margin-right: -2px; /* Pulls layers seamlessly together into singular lines */
+  }
+
+  .qr-center-emblem .qr-box:last-child {
+    margin-right: 0;
   }
 
   .qr-action-prompt {
@@ -469,17 +488,18 @@ font-size: 11px;
     font-weight: 400;
     color: #000000;
     text-decoration: underline;
+    text-underline-offset: 4px;
     letter-spacing: 0.5px;
-    margin-bottom: auto;
+    margin-top: 20px;
   }
 
   .qr-bottom-stamp {
     font-family: 'Work Sans', sans-serif;
-    font-size: 9px;
-    color: #777777;
+    font-size: 8px;
+    font-weight: 400;
+    color: #888888;
     letter-spacing: 0.5px;
-    position: absolute;
-    bottom: 40px;
     text-align: center;
+    margin-top: auto;
   }
 }

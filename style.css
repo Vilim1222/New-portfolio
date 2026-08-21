@@ -265,7 +265,6 @@ font-size: 11px;
     position: relative;
   }
 
-  /* Hide traditional desktop grid blocks completely on mobile portraits */
   .sidebar {
     display: none !important;
   }
@@ -284,6 +283,16 @@ font-size: 11px;
     object-fit: contain !important;
   }
 
+  /* NEW UPDATES: Moving photo titles higher up, shrinking text, aligning precisely right */
+  .photo-title {
+    font-size: 9px !important;       /* Clean scaled down layout size */
+    bottom: 55px !important;         /* Pushes up significantly to prevent overlap or clipping */
+    right: 25px !important;          /* Sets flush spacing matching the header margins */
+    left: auto !important;
+    width: auto !important;
+    text-align: right !important;    /* Precise alignment constraint */
+  }
+
   /* 1. Header Bar holding Controls permanently on main screen */
   .mobile-header {
     display: flex !important;
@@ -294,8 +303,8 @@ font-size: 11px;
     left: 25px;
     right: 25px;
     width: calc(100% - 50px);
-    z-index: 9999; /* Higher than full screen menus */
-    pointer-events: none; /* Let clicks pass through empty spaces to images */
+    z-index: 9999; 
+    pointer-events: none; 
   }
 
   .menu-toggle {
@@ -308,7 +317,7 @@ font-size: 11px;
     border: none;
     cursor: pointer;
     padding: 0;
-    pointer-events: auto; /* Re-activate clickable state */
+    pointer-events: auto; 
   }
 
   .menu-toggle .bar {
@@ -330,7 +339,7 @@ font-size: 11px;
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  /* Top Right Mobile Signature Logo Positioning */
+  /* Permanent Top Right Mobile Brand Logo Frame */
   .mobile-main-logo {
     width: 80px;
     height: auto;
@@ -348,7 +357,7 @@ font-size: 11px;
     width: 100vw;
     height: 100vh;
     background-color: #ffffff;
-    z-index: 9998; /* Directly beneath the toggle bar layers */
+    z-index: 9998; 
     box-sizing: border-box;
     padding: 120px 30px 40px 30px;
     transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);

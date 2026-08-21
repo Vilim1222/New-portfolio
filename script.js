@@ -128,6 +128,33 @@ mobileNavItems.forEach(item => {
 setActiveCategory(currentCategory);
 updateImage();
 
+// NEW EMBEDDED ENGINE: QR INGRESS DETECTOR & TAP ANYWHERE DISMISS SYSTEM
+document.addEventListener('DOMContentLoaded', () => {
+  const welcomeOverlay = document.getElementById('welcomeOverlay');
+  
+  if (welcomeOverlay) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isFromQR = urlParams.get('ref') === 'qr';
+
+    if (isFromQR) {
+      // Reveal splash viewport dynamically
+      welcomeOverlay.classList.add('active');
+
+      // Flush parameters to block repeat greeting prompts upon subsequent refreshes
+      const cleanURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      window.history.replaceState({ path: cleanURL }, '', cleanURL);
+    }
+
+    // Dismissal fading logic upon checking interaction sweeps ANYWHERE on page canvas structures
+    welcomeOverlay.addEventListener('click', () => {
+      welcomeOverlay.style.opacity = '0';
+      setTimeout(() => {
+        welcomeOverlay.classList.remove('active');
+      }, 400); 
+    });
+  }
+});
+
 function checkOrientation() {
   const overlay = document.querySelector('.rotate-overlay');
   const container = document.querySelector('.container');

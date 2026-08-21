@@ -265,7 +265,7 @@ font-size: 11px;
     position: relative;
   }
 
-  /* Force clean hiding of desktop block parameters */
+  /* Hide traditional desktop grid blocks completely on mobile portraits */
   .sidebar {
     display: none !important;
   }
@@ -284,13 +284,18 @@ font-size: 11px;
     object-fit: contain !important;
   }
 
-  /* 1. Show Mobile Trigger Layers */
+  /* 1. Header Bar holding Controls permanently on main screen */
   .mobile-header {
-    display: block !important;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 25px;
     left: 25px;
-    z-index: 9999;
+    right: 25px;
+    width: calc(100% - 50px);
+    z-index: 9999; /* Higher than full screen menus */
+    pointer-events: none; /* Let clicks pass through empty spaces to images */
   }
 
   .menu-toggle {
@@ -303,6 +308,7 @@ font-size: 11px;
     border: none;
     cursor: pointer;
     padding: 0;
+    pointer-events: auto; /* Re-activate clickable state */
   }
 
   .menu-toggle .bar {
@@ -324,7 +330,14 @@ font-size: 11px;
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  /* 2. Show Full Screen Overlay Layout Bounds */
+  /* Top Right Mobile Signature Logo Positioning */
+  .mobile-main-logo {
+    width: 80px;
+    height: auto;
+    pointer-events: auto;
+  }
+
+  /* 2. Full-Screen Minimal Overlay Navigation Menu Drawer */
   .mobile-nav {
     display: flex !important;
     flex-direction: column;
@@ -335,7 +348,7 @@ font-size: 11px;
     width: 100vw;
     height: 100vh;
     background-color: #ffffff;
-    z-index: 9998;
+    z-index: 9998; /* Directly beneath the toggle bar layers */
     box-sizing: border-box;
     padding: 120px 30px 40px 30px;
     transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -345,26 +358,7 @@ font-size: 11px;
     left: 0;
   }
 
-  /* 3. Mobile Right Logo Header Layout Frame */
-  .mobile-menu-header {
-    display: flex !important;
-    justify-content: flex-end;
-    width: 100%;
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    left: 0;
-    padding-right: 25px;
-    box-sizing: border-box;
-  }
-
-  .mobile-logo {
-    width: 80px;
-    height: auto;
-  }
-
   .mobile-menu-links {
-    margin-top: 20px; 
     display: flex;
     flex-direction: column;
     gap: 20px;

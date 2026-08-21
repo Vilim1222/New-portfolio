@@ -140,8 +140,8 @@ left: 20px;
 right: 20px;
 }
 
-/* HIDE RESPONSIVE GLOBAL CONTROLS ON DESKTOP DEVICES BY DEFAULT */
-.mobile-header, .mobile-nav {
+/* HIDE RESPONSIVE PHONE SYSTEM CONTROLS ON DESKTOP OVERLAYS BY DEFAULT */
+.mobile-header, .mobile-nav, .qr-welcome-overlay {
   display: none !important;
 }
 
@@ -283,7 +283,7 @@ font-size: 11px;
     object-fit: contain !important;
   }
 
-  /* PHOTO TITLE MOBILE FIX: Moved up to 95px, shrunk to 9px, forced right alignment */
+  /* PHOTO LABEL PORTRAIT SHIFT: Raised to 95px, small font, hard right bounds alignment */
   .photo-title {
     font-size: 9px !important;       
     bottom: 95px !important;         
@@ -345,7 +345,7 @@ font-size: 11px;
     pointer-events: auto;
   }
 
-  /* Full-Screen Minimal Overlay Navigation Menu Drawer */
+  /* Full-Screen Minimal Navigation Menu Drawer (Footer text padded up to 80px) */
   .mobile-nav {
     display: flex !important;
     flex-direction: column;
@@ -358,7 +358,7 @@ font-size: 11px;
     background-color: #ffffff;
     z-index: 9998; 
     box-sizing: border-box;
-    padding: 120px 30px 40px 30px;
+    padding: 120px 30px 80px 30px; 
     transition: left 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
@@ -399,5 +399,87 @@ font-size: 11px;
 
   .mobile-menu-footer a {
     text-decoration: underline;
+  }
+
+  /* ------------------------------------------------------------------------
+     3. Minimalist QR Welcome Screen Splash Overlays (Wireframe Aligned)
+     ------------------------------------------------------------------------ */
+  .qr-welcome-overlay {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 100000; /* Highest priority canvas threshold visibility layer */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .qr-welcome-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .qr-welcome-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .qr-heading-main {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    margin-bottom: 35px;
+  }
+
+  .qr-subheading-text {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+    text-align: center;
+    line-height: 1.4;
+    margin-bottom: 50px;
+  }
+
+  .qr-center-emblem {
+    width: 75px;
+    height: auto;
+    margin-bottom: 70px;
+  }
+
+  .qr-action-prompt {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #000000;
+    text-decoration: underline;
+    letter-spacing: 0.5px;
+    margin-bottom: auto;
+  }
+
+  .qr-bottom-stamp {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9px;
+    color: #777777;
+    letter-spacing: 0.5px;
+    position: absolute;
+    bottom: 40px;
+    text-align: center;
   }
 }

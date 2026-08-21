@@ -129,35 +129,51 @@ setActiveCategory(currentCategory);
 updateImage();
 
 // ==========================================================================
-// DETECTS QR ENTRY MODE ON EVERY NEW SCAN VS NAVIGATION LINKS
+// ADVANCED MULTI-FILTER WORKAROUND FOR STATIC PRINTED QR CODES
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
   const welcomeOverlay = document.getElementById('welcomeOverlay');
   
   if (welcomeOverlay) {
-    // 1. Target mobile screens in portrait view exclusively
     const isMobilePortrait = window.innerWidth <= 768 && window.matchMedia("(orientation: portrait)").matches;
     
-    // 2. Read the active URL query parameter token
-    const urlParams = new URLSearchParams(window.location.search);
-    const hasBrowsingToken = urlParams.get('view') === 'portfolio';
+    // FILTER 1: Read browser referrer sources
+    const referrer = document.referrer.toLowerCase();
+    const isFromBlockedSource = 
+      referrer.includes('instagram.com') || 
+      referrer.includes('google.') || 
+      referrer.includes('facebook.com') ||
+      referrer.includes('t.co') || // Twitter/X
+      referrer.includes('pinterest.com');
 
-    // 3. Trigger condition: If they are on mobile portrait and do NOT have the browsing token, show screen
-    if (isMobilePortrait && !hasBrowsingToken) {
+    // FILTER 2: Track initialization timings (QR scans process immediately compared to manual URL typing)
+    const navigationEntries = performance.getEntriesByType("navigation");
+    let isInstantLoad = false;
+    
+    if (navigationEntries.length > 0) {
+      const navTiming = navigationEntries[0];
+      // If the delta between domain request handshake and code execution is ultra short, flag as automated script ingress
+      if (navTiming.unloadEventEnd - navTiming.unloadEventStart <= 10) {
+        isInstantLoad = true;
+      }
+    }
+
+    // Use session variables so clicking links within the portfolio will never show the pop-up again
+    const hasSeenWelcome = sessionStorage.getItem('hasSeenPortfolioWelcome');
+
+    // CONDITIONAL TRIGGER: Only show if mobile, NOT from Instagram/Google, and hasn't seen it yet
+    if (isMobilePortrait && !isFromBlockedSource && !hasSeenWelcome) {
       welcomeOverlay.classList.add('active');
     }
 
-    // 4. Dismissal animation logic when tapping anywhere on the overlay screen
+    // Dismiss overlay instantly upon tapping anywhere on the mobile interface
     welcomeOverlay.addEventListener('click', () => {
       welcomeOverlay.style.opacity = '0';
-      
-      // Quietly append the browsing token so future links and category refreshes skip this screen
-      const newURL = window.location.protocol + "//" + window.location.host + window.location.pathname + "?view=portfolio";
-      window.history.replaceState({ path: newURL }, '', newURL);
+      sessionStorage.setItem('hasSeenPortfolioWelcome', 'true');
 
       setTimeout(() => {
         welcomeOverlay.classList.remove('active');
-        welcomeOverlay.style.opacity = ''; // Reset opacity helper state safely
+        welcomeOverlay.style.opacity = ''; 
       }, 400); 
     });
   }

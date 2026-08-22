@@ -5,7 +5,7 @@ const photoTitles = {
   "images/fashion1.jpg": "GloriaIN - Velvet noir editorial",
   "images/fashion2.jpg": "FLAW. - Wearing resistance editorial",
   "images/fashion3.jpg": "The Fool's Journey - fashion project",
-  "images/fashion4.jpg": "Izakova SS 26",
+  "images/fashion4.jpg": "GloriaIN - Velvet noir editorial",
   "images/fashion5.jpg": "Anatticus 26",
   "images/fashion6.jpg": "Anatticus - The Mind Behind The Making",
   "images/fashion7.jpg": "Jean Paul Gaultier - fashion project",
@@ -13,6 +13,7 @@ const photoTitles = {
   "images/fashion9.jpg": "Stages of grief - fashion project",
   "images/fashion10.jpg": "Antea Zimaj - Herida",
   "images/fashion11.jpg": "BIPA Fashion.hr - Vicko Racetin ",
+  "images/fashion11.jpg": "GloriaIN - Velvet noir editorial ",
 
   "images/portraits1.jpg": "Dorotea - Vere models",
   "images/portraits2.jpg": "Tanita - Faith Model Managment",
@@ -38,7 +39,7 @@ const photoTitles = {
 };
 
 const categories = {
-  fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg', 'images/fashion11.jpg'],
+  fashion: ['images/fashion1.jpg', 'images/fashion2.jpg', 'images/fashion3.jpg', 'images/fashion4.jpg', 'images/fashion5.jpg', 'images/fashion6.jpg', 'images/fashion7.jpg', 'images/fashion8.jpg', 'images/fashion9.jpg', 'images/fashion10.jpg', 'images/fashion11.jpg', 'images/fashion12.jpg'],
   portraits: ['images/portraits1.jpg', 'images/portraits2.jpg', 'images/portraits3.jpg', 'images/portraits4.jpg', 'images/portraits5.jpg', 'images/portraits6.jpg', 'images/portraits7.jpg', 'images/portraits8.jpg', 'images/portraits9.jpg', 'images/portraits10.jpg'],
   work: ['images/work1.jpg', 'images/work2.jpg', 'images/work3.jpg', 'images/work4.jpg', 'images/work5.jpg', 'images/work6.jpg', 'images/work7.jpg', 'images/work8.jpg', 'images/work9.jpg', 'images/work10.jpg']
 };

@@ -2,18 +2,18 @@ const galleryImage = document.getElementById("gallery-image");
 const galleryTitle = document.getElementById("gallery-title");
 
 const photoTitles = {
-  "images/fashion1.jpg": "GloriaIN - Velvet noir editorial",
-  "images/fashion2.jpg": "FLAW. - Wearing resistance editorial",
+  "images/fashion1.jpg": "GloriaIN - 'Velvet noir' editorial",
+  "images/fashion2.jpg": "FLAW. - 'Wearing resistance' editorial",
   "images/fashion3.jpg": "The Fool's Journey - fashion project",
-  "images/fashion4.jpg": "GloriaIN - Velvet noir editorial",
+  "images/fashion4.jpg": "GloriaIN - 'Velvet noir' editorial",
   "images/fashion5.jpg": "Anatticus 26",
   "images/fashion6.jpg": "Anatticus - The Mind Behind The Making",
   "images/fashion7.jpg": "Jean Paul Gaultier - fashion project",
-  "images/fashion8.jpg": "GloriaIN - DIPMOD 10 editorial",
+  "images/fashion8.jpg": "GloriaIN - 'DIPMOD 10' editorial",
   "images/fashion9.jpg": "Stages of grief - fashion project",
   "images/fashion10.jpg": "Antea Zimaj - Herida",
-  "images/fashion11.jpg": "BIPA Fashion.hr - Vicko Racetin ",
-  "images/fashion11.jpg": "GloriaIN - Velvet noir editorial ",
+  "images/fashion11.jpg": "BIPA Fashion.hr - Vicko Racetin design",
+  "images/fashion11.jpg": "GloriaIN - 'Velvet noir' editorial ",
 
   "images/portraits1.jpg": "Dorotea - Vere models",
   "images/portraits2.jpg": "Tanita - Faith Model Managment",
@@ -26,7 +26,7 @@ const photoTitles = {
   "images/portraits9.jpg": "Dorotea - Vere models",
   "images/portraits10.jpg": "Vid - IM Models Agency",
 
-  "images/work1.jpg": "Armani code - parfume ",
+  "images/work1.jpg": "Armani code personal project",
   "images/work2.jpg": "ZAKS x Jelena Rozga TVC ",
   "images/work3.jpg": "Eucerin - Hyaluron-filler 3x",
   "images/work4.jpg": "Stella Rade - Nema te - Eurovision 2026",

@@ -14,7 +14,7 @@
 <!-- NEW COMPONENT: QR CODE CARD WELCOME OVERLAY MODAL SCREEN -->
 <div id="welcomeOverlay" class="qr-welcome-overlay">
   <div class="qr-welcome-wrapper">
-    <h1 class="qr-heading-main">THANK YOU FOR<br>SCANING MY CARD</h1>
+    <h1 class="qr-heading-main">THANK YOU FOR<br>SCANNING MY CARD</h1>
     <p class="qr-subheading-text">Welcome to my photography<br>portfolio website</p>
     
     <!-- Fine Geometric Center Signature Emblem -->
@@ -64,6 +64,7 @@
     <span data-category="fashion" class="mobile-link active">FASHION</span>
     <span data-category="portraits" class="mobile-link">PORTRAITS</span>
     <span data-category="work" class="mobile-link">WORK</span>
+    <span data-category="bio" class="mobile-link">BIO</span>
   </div>
 
   <div class="mobile-menu-footer">
@@ -94,6 +95,7 @@
         <li data-category="fashion" class="active">FASHION</li>
         <li data-category="portraits">PORTRAITS</li>
         <li data-category="work">WORK</li>
+        <li data-category="bio">BIO</li>
       </ul>
     </nav>
     <div class="info">
@@ -104,11 +106,21 @@
     </div>
   </div>
 
-  <!-- Main Image Canvas Layer -->
+  <!-- Main Content Area Frame (80% Right Container Side) -->
   <div class="gallery">
     <div class="arrow left">❮</div>
     <img id="gallery-image" src="images/fashion1.jpg" alt="Gallery Image">
-     <div id="gallery-title" class="photo-title"></div>
+    <div id="gallery-title" class="photo-title"></div>
+    
+    <!-- CENTRALIZED DYNAMIC BIOGRAPHY CONTENT CONTAINER OVERLAY -->
+    <div id="bio-container" class="bio-text-overlay" style="display: none;">
+      <div class="bio-text-wrapper">
+        <p>I’m Vilim Tavčar, a Zagreb-born photographer specializing in portrait, fashion, and commercial imagery. My path to the camera was built on years of artistic exploration—from childhood spent immersed in nature to directing VFX-heavy short films and working professionally as an agency graphic designer.</p>
+        <p>Everything shifted around 2013, when I took a photograph that sparked a specific, visceral feeling—a quiet emotional resonance I've been chasing ever since. Today, that gut feeling serves as my ultimate creative compass; if an image doesn't evoke that same instinctual reaction, it isn't finished. I leverage my design foundation to construct precise, high-fidelity visual worlds, blending technical rigor with painterly, fine-art moods.</p>
+        <p>My brand mark embodies this intersection of modern structure and deep heritage: a geometric monogram of my initials, V and T, derived from the ancient Glagolitic alphabet. The surrounding frame forms a 3:4 aspect ratio—a subtle nod to the timeless format that grounds my photography.</p>
+      </div>
+    </div>
+    
     <div class="arrow right">❯</div>
   </div>
 </div>

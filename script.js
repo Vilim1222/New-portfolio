@@ -1,5 +1,8 @@
 const galleryImage = document.getElementById("gallery-image");
 const galleryTitle = document.getElementById("gallery-title");
+const bioContainer = document.getElementById("bio-container");
+const arrowLeft = document.querySelector('.arrow.left');
+const arrowRight = document.querySelector('.arrow.right');
 
 const photoTitles = {
   "images/fashion1.jpg": "GloriaIN - 'Velvet noir' editorial",
@@ -61,6 +64,23 @@ if (menuToggle && mobileNav) {
 }
 
 function updateImage() {
+  // IF BIO IS ACTIVE: Hide all image assets and arrows, display the text container block
+  if (currentCategory === 'bio') {
+    if (galleryImage) galleryImage.style.display = 'none';
+    if (galleryTitle) galleryTitle.style.display = 'none';
+    if (arrowLeft) arrowLeft.style.display = 'none';
+    if (arrowRight) arrowRight.style.display = 'none';
+    if (bioContainer) bioContainer.style.display = 'flex';
+    return;
+  }
+
+  // STANDARD GALLERIES: Restore images, matching title logs, and navigation arrows
+  if (galleryImage) galleryImage.style.display = 'block';
+  if (galleryTitle) galleryTitle.style.display = 'block';
+  if (arrowLeft) arrowLeft.style.display = 'flex';
+  if (arrowRight) arrowRight.style.display = 'flex';
+  if (bioContainer) bioContainer.style.display = 'none';
+
   const images = categories[currentCategory];
   const currentSrc = images[currentIndex];
   
@@ -92,12 +112,14 @@ function setActiveCategory(category) {
 }
 
 document.querySelector('.arrow.left').addEventListener('click', () => {
+  if (currentCategory === 'bio') return;
   const images = categories[currentCategory];
   currentIndex = (currentIndex - 1 + images.length) % images.length;
   updateImage();
 });
 
 document.querySelector('.arrow.right').addEventListener('click', () => {
+  if (currentCategory === 'bio') return;
   const images = categories[currentCategory];
   currentIndex = (currentIndex + 1) % images.length;
   updateImage();
@@ -138,36 +160,30 @@ document.addEventListener('DOMContentLoaded', () => {
   if (welcomeOverlay) {
     const isMobilePortrait = window.innerWidth <= 768 && window.matchMedia("(orientation: portrait)").matches;
     
-    // FILTER 1: Read browser referrer sources
     const referrer = document.referrer.toLowerCase();
     const isFromBlockedSource = 
       referrer.includes('instagram.com') || 
       referrer.includes('google.') || 
       referrer.includes('facebook.com') ||
-      referrer.includes('t.co') || // Twitter/X
+      referrer.includes('t.co') || 
       referrer.includes('pinterest.com');
 
-    // FILTER 2: Track initialization timings (QR scans process immediately compared to manual URL typing)
     const navigationEntries = performance.getEntriesByType("navigation");
     let isInstantLoad = false;
     
     if (navigationEntries.length > 0) {
       const navTiming = navigationEntries[0];
-      // If the delta between domain request handshake and code execution is ultra short, flag as automated script ingress
       if (navTiming.unloadEventEnd - navTiming.unloadEventStart <= 10) {
         isInstantLoad = true;
       }
     }
 
-    // Use session variables so clicking links within the portfolio will never show the pop-up again
     const hasSeenWelcome = sessionStorage.getItem('hasSeenPortfolioWelcome');
 
-    // CONDITIONAL TRIGGER: Only show if mobile, NOT from Instagram/Google, and hasn't seen it yet
     if (isMobilePortrait && !isFromBlockedSource && !hasSeenWelcome) {
       welcomeOverlay.classList.add('active');
     }
 
-    // Dismiss overlay instantly upon tapping anywhere on the mobile interface
     welcomeOverlay.addEventListener('click', () => {
       welcomeOverlay.style.opacity = '0';
       sessionStorage.setItem('hasSeenPortfolioWelcome', 'true');
@@ -205,30 +221,12 @@ window.addEventListener('orientationchange', checkOrientation);
 function handleOrientationChange() {
   const isMobile = window.innerWidth <= 768;
   const isLandscape = window.matchMedia("(orientation: landscape)").matches;
-  const sidebar = document.querySelector('.sidebar');
-  const gallery = document.querySelector('.gallery');
-
+  
   if (isMobile && isLandscape) {
-    if (sidebar) sidebar.style.display = 'flex';
-    if (gallery) gallery.style.width = '80%';
+    if (document.querySelector('.sidebar')) document.querySelector('.sidebar').style.display = 'flex';
+    if (document.querySelector('.gallery')) document.querySelector('.gallery').style.width = '80%';
   }
 }
 
 window.addEventListener('resize', handleOrientationChange);
 window.addEventListener('orientationchange', handleOrientationChange);
-
-function adjustImageHeight() {
-  if (window.innerWidth <= 768 && window.matchMedia("(orientation: portrait)").matches) {
-    const img = document.getElementById('gallery-image');
-    const sidebar = document.querySelector('.sidebar');
-    
-    if (img && sidebar) {
-      const windowHeight = window.innerHeight;
-      const headerHeight = sidebar.offsetHeight;
-      img.style.maxHeight = `${windowHeight - headerHeight - 40}px`;
-    }
-  }
-}
-
-window.addEventListener('load', adjustImageHeight);
-window.addEventListener('resize', adjustImageHeight);

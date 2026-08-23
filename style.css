@@ -500,3 +500,99 @@ a {
   .qr-heading-main {
     font-family: 'Work Sans', sans-serif;
     font-size: 26px;
+.qr-welcome-overlay {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 100005; /* Highest layer threshold overlay */
+    padding: 15vh 30px 6vh 30px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .qr-welcome-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .qr-welcome-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .qr-heading-main {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.35;
+    margin-bottom: 35px;
+    margin-top: -40px; /* Shifts content up from visual layout dead center */
+  }
+
+  .qr-subheading-text {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+    text-align: center;
+    line-height: 1.45;
+    margin-bottom: 50px;
+  }
+
+  /* RECOGNIZED BRAND LOGO FRAME: Handles the precise sizing of your actual SVG container layout */
+  .qr-center-emblem {
+    width: 110px; /* Aligns proportions beautifully with image bounds */
+    height: auto;
+    margin-bottom: 80px;
+    display: block;
+  }
+  
+  .qr-center-emblem svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .qr-action-prompt {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #000000;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    letter-spacing: 0.5px;
+    margin-bottom: 120px; /* Gives perfect vertical space matching layout design specifications */
+  }
+
+  /* MOVED UP COPYRIGHT TEXT: Lifted significantly from layout boundary line edge */
+  .qr-bottom-stamp {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: 0.5px;
+    position: absolute;
+    bottom: 85px; /* Shifted higher up from 55px to ensure spacious separation */
+    text-align: center;
+    opacity: 0.8;
+  }
+}

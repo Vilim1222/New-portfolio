@@ -1,7 +1,7 @@
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 img {
@@ -23,121 +23,154 @@ img {
 }
 
 body {
-font-family: 'Work Sans', sans-serif;
-background-color: #fff;
-color: #000;
+  font-family: 'Work Sans', sans-serif;
+  background-color: #fff;
+  color: #000;
 }
 
 a {
-color: inherit; 
+  color: inherit; 
 }
 
 .info .copyright-text {
-font-size: 11px; 
-padding-top: 100px
+  font-size: 11px; 
+  padding-top: 100px;
 }
 
 @keyframes rotate {
-from { transform: rotate(0deg); }
-to { transform: rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .container {
-display: flex;
-height: 100vh;
-overflow: hidden;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .sidebar {
-width: 20%;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-padding: 30px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
 }
 
 .logo {
-width: 100px;
-height: auto;
+  width: 100px;
+  height: auto;
 }
 
 .menu {
-display: flex;
-flex-direction: column;
-gap: 15px;
-margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .menu ul {
-list-style: none;
+  list-style: none;
 }
 
 .menu li {
-font-size: 18px;
-cursor: pointer;
-padding: 5px 0;
-position: relative;
-font-weight: 400;
-transition: font-weight 0.2s ease;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 0;
+  position: relative;
+  font-weight: 400;
+  transition: font-weight 0.2s ease;
 }
 
 .menu li:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .menu li.active {
-font-weight: 600;
+  font-weight: 600;
 }
 
 .info {
-font-size: 14px;
-line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .gallery {
-width: 80%;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
+  width: 80%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .gallery img {
-max-height: 100vh;
-width: auto;
-height: 100%;
-object-fit: cover;
-transition: opacity 0.5s ease-in-out;
+  max-height: 100vh;
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .arrow {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-font-size: 30px;
-color: black;
-border-radius: 50%;
-width: 40px;
-height: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-user-select: none;
-opacity: 0.4;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  color: black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.4;
 }
 
 .arrow:hover {
-opacity: 1;
+  opacity: 1;
 }
 
 .arrow.left {
-left: 20px;
+  left: 20px;
 }
 
 .arrow.right {
-right: 20px;
+  right: 20px;
+}
+
+/* ==========================================================================
+   BIOGRAPHY SECTION (CENTRALIZED OVERLAY SYSTEM)
+   ========================================================================== */
+.bio-text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;       /* Perfect vertical alignment */
+  justify-content: center;    /* Perfect horizontal alignment */
+  padding: 0 12%;             /* Clean negative margin breathing room */
+  z-index: 8;
+}
+
+.bio-text-wrapper {
+  max-width: 620px;           /* Comfortable line length threshold */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;                  /* Editorial gap spacing between paragraph breaks */
+}
+
+.bio-text-overlay p {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #000000;
+  letter-spacing: 0.4px;
+  text-align: justify;        /* Keeps outer blocks sharp and neat */
 }
 
 /* HIDE RESPONSIVE PHONE SYSTEM CONTROLS ON DESKTOP LAYOUTS BY DEFAULT */
@@ -145,114 +178,133 @@ right: 20px;
   display: none !important;
 }
 
+/* ==========================================================================
+   TABLET / GENERAL RESPONSIVE BREAKPOINTS
+   ========================================================================== */
 @media (max-width: 768px) {
-.container {
-flex-direction: column;
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: grid;
+    grid-template-areas: 
+      "menu logo"
+      "menu info";
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    align-items: start;
+  }
+
+  .logo {
+    grid-area: logo;
+    width: 80px;
+    justify-self: end;
+    margin-top: 0.5em;
+    position: relative;
+    top: 0.25em;
+  }
+
+  .menu {
+    grid-area: menu;
+    align-self: start;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    padding-top: 0.25em;
+  }
+
+  .info {
+    grid-area: info;
+    justify-self: end;
+    text-align: right;
+    align-self: end;
+  }
+
+  .gallery {
+    width: 100%;
+    height: calc(100vh - 200px);
+    order: 3;
+  }
+
+  .menu li {
+    font-size: 16px;
+    white-space: nowrap;
+    line-height: 1.3;
+  }
+
+  .arrow {
+    font-size: 24px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .bio-text-overlay {
+    padding: 60px 24px;
+    align-items: flex-start;  /* Flow top-down gracefully if height space runs tight */
+    overflow-y: auto;         /* Allow scrolling if content runs tall */
+  }
 }
 
-.sidebar {
-width: 100%;
-display: grid;
-grid-template-areas: 
-"menu logo"
-"menu info";
-grid-template-columns: 1fr 1fr;
-gap: 15px;
-padding: 15px;
-align-items: start;
-}
-
-.logo {
-grid-area: logo;
-width: 80px;
-justify-self: end;
-margin-top: 0.5em;
-position: relative;
-top: 0.25em;
-}
-
-.menu {
-grid-area: menu;
-align-self: start;
-height: 100%;
-display: flex;
-flex-direction: column;
-gap: 0.8em;
-padding-top: 0.25em;
-}
-
-.info {
-grid-area: info;
-justify-self: end;
-text-align: right;
-align-self: end;
-}
-
-.gallery {
-width: 100%;
-height: calc(100vh - 200px);
-order: 3;
-}
-
-.menu li {
-font-size: 16px;
-white-space: nowrap;
-line-height: 1.3;
-}
-
-.arrow {
-font-size: 24px;
-width: 35px;
-height: 35px;
-}
-}
-
+/* ==========================================================================
+   MOBILE LANDSCAPE MODE Breakpoints
+   ========================================================================== */
 @media (max-width: 768px) and (orientation: landscape) {
-.container {
-display: flex !important;
-flex-direction: row !important;
-height: 100vh;
-}
+  .container {
+    display: flex !important;
+    flex-direction: row !important;
+    height: 100vh;
+  }
 
-.sidebar {
-display: flex !important;
-width: 25% !important;
-flex-direction: column !important;
-justify-content: flex-start !important;
-padding: 20px !important;
-align-items: flex-start !important;
-}
+  .sidebar {
+    display: flex !important;
+    width: 25% !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding: 20px !important;
+    align-items: flex-start !important;
+  }
 
-.logo {
-width: 80px !important;
-margin-bottom: 15px !important;
-align-self: flex-start !important;
-}
+  .logo {
+    width: 80px !important;
+    margin-bottom: 15px !important;
+    align-self: flex-start !important;
+  }
 
-.menu {
-flex: 1;
-width: 100% !important;
-display: flex !important;
-flex-direction: column !important;
-gap: 15px !important;
-margin: 0 !important;
-padding: 0 !important;
-}
+  .menu {
+    flex: 1;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-.info {
-margin-top: auto !important;
-padding-bottom: 20px !important;
-align-self: flex-start !important;
-text-align: left !important;
-}
+  .info {
+    margin-top: auto !important;
+    padding-bottom: 20px !important;
+    align-self: flex-start !important;
+    text-align: left !important;
+  }
 
-.gallery {
-width: 75% !important;
-height: 100vh !important;
-}
-.info {
-font-size: 11px;
-}
+  .gallery {
+    width: 75% !important;
+    height: 100vh !important;
+  }
+
+  .info {
+    font-size: 11px;
+  }
+
+  .bio-text-overlay {
+    padding: 40px 10%;
+    align-items: flex-start;  /* Prevent clipping if screen is short */
+    overflow-y: auto;
+  }
 }
 
 /* ==========================================================================
@@ -290,6 +342,13 @@ font-size: 11px;
     left: auto !important;
     width: auto !important;
     text-align: right !important;    
+  }
+
+  .bio-text-overlay {
+    padding: 120px 30px 80px 30px; /* Pads text smoothly under fixed mobile logo header */
+    align-items: flex-start;
+    overflow-y: auto;
+    z-index: 999;                  /* Sits neatly below navigation panels */
   }
 
   /* Header Bar holding controls permanently on main screen */
@@ -400,9 +459,7 @@ font-size: 11px;
     text-decoration: underline;
   }
 
-  /* ------------------------------------------------------------------------
-     3. Welcome Screen Blueprint Styling Layout (Matches Image Preview)
-     ------------------------------------------------------------------------ */
+  /* Welcome Screen Blueprint Overlay Layout */
   .qr-welcome-overlay {
     display: flex !important;
     flex-direction: column;
@@ -414,7 +471,7 @@ font-size: 11px;
     width: 100vw;
     height: 100vh;
     background-color: #ffffff;
-    z-index: 100005; /* Highest layer threshold overlay */
+    z-index: 100005; 
     padding: 15vh 30px 6vh 30px;
     box-sizing: border-box;
     text-align: center;
@@ -443,59 +500,3 @@ font-size: 11px;
   .qr-heading-main {
     font-family: 'Work Sans', sans-serif;
     font-size: 26px;
-    font-weight: 500;
-    color: #000000;
-    text-align: center;
-    letter-spacing: 1px;
-    line-height: 1.35;
-    margin-bottom: 35px;
-    margin-top: -40px; /* Shifts content up from visual layout dead center */
-  }
-
-  .qr-subheading-text {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    color: #000000;
-    text-align: center;
-    line-height: 1.45;
-    margin-bottom: 50px;
-  }
-
-  /* RECOGNIZED BRAND LOGO FRAME: Handles the precise sizing of your actual SVG container layout */
-  .qr-center-emblem {
-    width: 110px; /* Aligns proportions beautifully with image bounds */
-    height: auto;
-    margin-bottom: 80px;
-    display: block;
-  }
-  
-  .qr-center-emblem svg {
-    width: 100%;
-    height: auto;
-  }
-
-  .qr-action-prompt {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: #000000;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    letter-spacing: 0.5px;
-    margin-bottom: 120px; /* Gives perfect vertical space matching layout design specifications */
-  }
-
-  /* MOVED UP COPYRIGHT TEXT: Lifted significantly from layout boundary line edge */
-  .qr-bottom-stamp {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 9px;
-    font-weight: 400;
-    color: #000000;
-    letter-spacing: 0.5px;
-    position: absolute;
-    bottom: 85px; /* Shifted higher up from 55px to ensure spacious separation */
-    text-align: center;
-    opacity: 0.8;
-  }
-}

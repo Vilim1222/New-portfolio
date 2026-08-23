@@ -13,7 +13,7 @@ const photoTitles = {
   "images/fashion9.jpg": "Stages of grief - fashion project",
   "images/fashion10.jpg": "Antea Zimaj - Herida",
   "images/fashion11.jpg": "BIPA Fashion.hr - Vicko Racetin design",
-  "images/fashion11.jpg": "GloriaIN - 'Velvet noir' editorial ",
+  "images/fashion12.jpg": "GloriaIN - 'Velvet noir' editorial ",
 
   "images/portraits1.jpg": "Dorotea - Vere models",
   "images/portraits2.jpg": "Tanita - Faith Model Managment",

@@ -18,7 +18,7 @@ const photoTitles = {
   "images/fashion11.jpg": "BIPA Fashion.hr - Vicko Racetin design",
   "images/fashion12.jpg": "GloriaIN - 'Velvet noir' editorial ",
 
-  "images/portraits1.jpg": "Dorotea - Vere models",
+  "images/portraits1.jpg": "Dora - Abyss Management",
   "images/portraits2.jpg": "Tanita - Faith Model Managment",
   "images/portraits3.jpg": "Rajna - Vere models",
   "images/portraits4.jpg": "Izabel Kovačić",
